@@ -16,12 +16,26 @@ export class RegistroComponent implements OnInit {
   messageError: string = '';
   active = 1;
   myFormRest = new FormGroup({
-    restName: new FormControl("", [
+    EditorialName: new FormControl("", [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(15)
     ]),
-    slogan: new FormControl("", [
+
+    EditorialPass: new FormControl("", [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(15)
+    ]),
+
+    EditorialEmail: new FormControl("", [
+      Validators.required,
+      Validators.minLength(12),
+      Validators.maxLength(35),
+      Validators.email
+    ]),
+
+    EditorialAddress: new FormControl("", [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(15)

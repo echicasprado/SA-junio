@@ -124,7 +124,7 @@
             </ng-template>
           </li>
           <li [ngbNavItem]="2">
-            <a ngbNavLink>Restaurante</a>
+            <a ngbNavLink>Editorial</a>
             <ng-template ngbNavContent>
 
               <form [formGroup]="myFormRest" (ngSubmit)="onSubmitRest()">
@@ -136,34 +136,71 @@
                   </div>
                   <input
                     [class.is-invalid]="
-                      myFormRest.get('restName').touched &&
-                      myFormRest.get('restName').invalid
+                      myFormRest.get('EditorialName').touched &&
+                      myFormRest.get('EditorialName').invalid
                     "
                     type="text"
                     class="form-control"
-                    placeholder="nombre"
-                    formControlName="restName"
+                    placeholder="nombre editorial"
+                    formControlName="EditorialName"
                     autofocus
                   />
                 </div>
+               
                 <div class="input-group form-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"
-                      ><i class="fa fa-cube"></i
+                      ><i class="fas fa-key"></i
                     ></span>
                   </div>
                   <input
+                    id="testPassword"
                     [class.is-invalid]="
-                      myFormRest.get('slogan').touched &&
-                      myFormRest.get('slogan').invalid
+                       myFormRest.get('EditorialPass').touched && 
+                       myFormRest.get('EditorialPass').invalid"
+                    type="password"
+                    class="form-control"
+                    placeholder="contraseña"
+                    formControlName="EditorialPass"
+                  />
+                </div>
+
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  </div>
+                  <input
+                  id="testCorreo"
+              [class.is-invalid]="
+                      myFormRest.get('EditorialEmail').touched && 
+                      myFormRest.get('EditorialEmail').invalid"	
+                    type="email"
+                    class="form-control"
+                    placeholder="correo"
+                    formControlName="EditorialEmail"
+                  />
+                </div>
+                
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+                  </div>
+                  <input
+                    [class.is-invalid]="
+                      myFormRest.get('EditorialAddress').touched &&
+                      myFormRest.get('EditorialAddress').invalid
                     "
                     type="text"
                     class="form-control"
-                    placeholder="slogan"
-                    formControlName="slogan"
+                    placeholder="direccion"
+                    formControlName="EditorialAddress"
                     autofocus
                   />
                 </div>
+
+                
+            
+
               </form>
 
 
