@@ -1,0 +1,76 @@
+#containerProducts {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  max-width: 100vw;
+  font-family: monospace, "Numans", sans-serif;
+}
+
+#titulo {
+  text-align: center;
+}
+
+h1 {
+  color: rgb(114, 114, 114);
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 150px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+}
+
+#botones {
+  text-align: center;
+}
+.btn {
+  margin-left: 30px;
+}
+
+.container {
+    max-width: 100vw;
+}
+
+#tabla {
+  margin-right: 20px;
+  background-color: white;
+}
+
+.modal-body {
+  font-size: large;
+}
+
+input[type="radio"] {
+  transform: scale(1.5);
+}
+
+@media (max-width: 768px) {
+    .specifictd {
+      min-width: 650px; /* adjust to desired wrapping. Por si se mira la barra de navegacion horizontal a tamaño completo
+                              https://es.stackoverflow.com/questions/406603/table-responsive-en-bootstrap-4-no-me-funciona*/
+      display: table;
+      word-wrap: break-word;
+    }
+  
+    #titulo {
+      text-align: center;
+    }
+    h1 {
+      color: rgb(114, 114, 114);
+      font-family: "Helvetica Neue", sans-serif;
+      font-size: 100px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      line-height: 1;
+      text-align: center;
+    }
+  }
+  @media (max-width: 575px) {
+    #titulo {
+      text-align: center;
+    }
+    h1 {
+      font-size: 50px;
+    }
+  }
+  

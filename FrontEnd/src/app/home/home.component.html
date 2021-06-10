@@ -1,0 +1,33 @@
+<html>
+<head>
+    <style type="text/css" ref="" ></style>
+</head>
+<body>
+    <div align="right" class="encabezado">
+        <button onclick="location.href='/carrito'" ></button>
+      
+    </div>
+    <div class="card">
+        
+        <h1 id="testInicio">CATALOGO DE PRODUCTOS</h1>
+       
+        <div  class="productos">
+            <div class="row">
+                <div  *ngFor="let pro of listaproductos" class="col-xs-10 col-sm-6 col-md-4 product">
+                 <div class="tarjeta" >
+                     <img src="{{pro.url_imagen}}" alt=" " />
+                     <h3>{{pro.nombre}}</h3>
+                     <h3>Q.{{pro.precio}}</h3>
+                     <button (click)="mandarObjeto(pro)">Agregar al carrito</button>
+                    
+                     </div>
+                </div>
+            </div>
+     
+        </div>
+        
+    </div>
+    
+</body>
+</html>
+
