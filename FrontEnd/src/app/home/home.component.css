@@ -3,9 +3,16 @@ html, body{
  
   font-family: Georgia, 'Times New Roman', Times, serif;
   color:white;
- 
+  background-image: url("../../assets/libros.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  max-width: 100vw;
+  font-family: "Numans", sans-serif;
 
 }
+
+
 
 .card {    /* este es para la pantallita negra sobrepuesta*/
  
