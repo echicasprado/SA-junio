@@ -22,8 +22,9 @@ router.get('/', function(req, res) {
 app.use(router);
 
 mongoose.set('useNewUrlParser', true);
+mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect('mongodb://softwareA:EstoSeVaADescontrolar!@34.134.68.224:27017/sa-database', function(err, res) {
+mongoose.connect('mongodb://softwareA:EstoSeVaADescontrolar!@34.134.68.224:27017', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }
