@@ -10,7 +10,7 @@ var BookSchema = new Schema({
   price: Number,
   units: Number,
   author: Number,
-  category: [{ type: Schema.Types.ObjectId, ref: 'Category'}]
+  category: [{type: String}]
 });
 
 
