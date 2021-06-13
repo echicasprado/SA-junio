@@ -4,10 +4,11 @@ var Usuario  = mongoose.model('Usuario');
 //Buscar usuario y contraseña
 exports.findUsuario = function(req, res) {
 	Usuario.find({correo: req.body.user, password: req.body.password}, function(err, u) {
-        if(err) return res.send(500, err.message);
+        if(err) return res.send(false);
 
         console.log('GET /Login/ ' + req.body.user + ' ' + req.body.password);
-		res.status(200).jsonp(u);
+		if(u.length === 0 ) res.send(false)
+		res.status(200).jsonp(u[0]);
 	});
 };
 

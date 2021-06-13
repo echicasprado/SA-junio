@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   });
 
   onSubmit(): void {
+
     const user = this.myForm.value;
     if(user.userEmail === ''  || user.userPass === ''){
       this.credentialsInvalid = true;
@@ -43,29 +44,41 @@ export class LoginComponent implements OnInit {
       return;
     }
     console.log(this.myForm.value);
-    this.loginService.postLogin(user.userEmail , user.userPass).subscribe((data: {msg:string})=> {      
-      console.log(data);
-      if(data.msg === 'false'){        
+
+    this.loginService.postLogin(user.userEmail , user.userPass).subscribe((data:any)=> {      
+      console.log("data: ",data);
+
+
+      if(!data){        
         this.messageError = 'Credenciales invalidas';
         this.credentialsInvalid = true;
         setTimeout(() => {this.credentialsInvalid = false;},3500);
-        return;
+        return
       }
-      this.loginService.getUser(user.userEmail).subscribe((data: any)=> { 
-        const user: usuario = data[0]; 
-        console.log('######### ',user)
-        localStorage.setItem('usuario', JSON.stringify(user));
-        localStorage.removeItem('productoscarrito');
-        if(user.idRol == 1 || user.idRol == 2)
-          this.router.navigateByUrl('/admin')
-        else
-          this.router.navigateByUrl('/');
-      },error => {
-        this.messageError = 'Problemas en la conexión';
-        this.credentialsInvalid = true;
-        console.log(error);
-        setTimeout(() => {this.credentialsInvalid = false;},3500);
-      });
+      
+      let newUser = data as usuario; 
+
+      localStorage.setItem('usuario', JSON.stringify(newUser));
+      localStorage.removeItem('productoscarrito');
+
+      if(newUser.idRol == 1 || newUser.idRol == 2)
+        this.router.navigateByUrl('/admin')
+      else
+        this.router.navigateByUrl('/');
+
+
+      // this.loginService.getUser(user.userEmail).subscribe((data: any)=> { 
+      //   
+      //   console.log('######### ',user)
+      
+      //   
+      // },error => {
+      //   this.messageError = 'Problemas en la conexión';
+      //   this.credentialsInvalid = true;
+      //   console.log(error);
+      //   setTimeout(() => {this.credentialsInvalid = false;},3500);
+      // });
+
     }, error => {
       if (error.status == 401 || error.status == 402)    
         // this.messageError = error.error.message;

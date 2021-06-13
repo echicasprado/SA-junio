@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-
+var cors = require('cors')
+ 
+app.use(cors())
 require('./database');
 
 //Convierte los datos que recibe el servidor 

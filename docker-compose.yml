@@ -110,25 +110,25 @@ services:
   #      - 9004:9004
   #
   #
-  #
-  #  microservicio8:
-  #    container_name: serviciopedidos
-  #    image: serviciopedidos
-  #    build:
-  #      context: ./Servicio3
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9008:9008
-
-
-  front:
-    container_name: front
-    image: front
+  
+  usuario:
+    container_name: usuario
+    image: usuario
     build:
-      context: ./FrontEnd
+      context: ./Usuario
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47001:3000
+
+
+  frontend:
+    container_name: frontend
+    image: frontend
+    build:
+      context: ./Frontend
       dockerfile: Dockerfile
     restart: always
     # environment:
@@ -136,7 +136,7 @@ services:
     networks: 
       - SA
     ports:
-      - 4200:4200
+      - 47000:4200
 
 networks: 
     SA:

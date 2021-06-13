@@ -5,7 +5,9 @@ var express  = require("express"),
     http     = require("http"),
     server   = http.createServer(app),
     mongoose = require('mongoose');
-
+var cors = require('cors')
+ 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
@@ -24,7 +26,7 @@ app.use(router);
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect('mongodb://softwareA:EstoSeVaADescontrolar!@34.134.68.224:27017', function(err, res) {
+mongoose.connect('mongodb://softwareA:EstoSeVaADescontrolar!@34.134.68.224:27017/sa-database?authSource=admin', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }

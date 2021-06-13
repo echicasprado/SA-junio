@@ -9,34 +9,32 @@ import { usuario } from "../models/user";
   providedIn: 'root'
 })
 export class UsuarioService {
-  API_URI = "http://35.202.232.78:4040";
-  API_URI2 = "http://35.202.232.78:4041";
-  API_URI3 = "http://35.202.232.78:4043";
+  API_URI = "http://localhost:47001";
 
 /*
   API_URI = "http://35.239.187.92:4040";
   API_URI2 = "http://35.239.187.92:4041";
   API_URI3 = "http://35.239.187.92:4043";*/
 
-  tokenFromUI: string = "ayd2-fase1-12345";
+  tokenFromUI: string = "SA-Encryption";
 
   constructor(private http: HttpClient, private route: Router) { }
 
   postLogin(correo:String, contrasena: string) {
     const encriptada = this.encryptUsingAES256(this.tokenFromUI, contrasena);
-    console.log(encriptada)
-    console.log(this.decryptUsingAES256(this.tokenFromUI, encriptada))
-    return this.http.post(`${this.API_URI}/login/login-usuario`, {  "user": correo, "password": encriptada});
+    // console.log(encriptada)
+    // console.log(this.decryptUsingAES256(this.tokenFromUI, encriptada))
+    return this.http.post(`${this.API_URI}/Login`, {  "user": correo, "password": encriptada});
   }
 
-  getUser(correo: string){
-    return this.http.post(`${this.API_URI3}/user-data/get-data-user`, {correo: correo});
-  }
+  // getUser(correo: string){
+  //   return this.http.post(`${this.API_URI}/user-data/get-data-user`, {correo: correo});
+  // }
 
   postRegistro(usuario: usuario){    
-    const encriptada = this.encryptUsingAES256(this.tokenFromUI, usuario.password.toString());
+    const encriptada = this.encryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
     usuario.password = encriptada;
-    return this.http.post(`${this.API_URI2}/client/register`, usuario);
+    return this.http.post(`${this.API_URI}/Registro`, usuario);
   }
 
   estaLog():Boolean{
