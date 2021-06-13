@@ -6,7 +6,6 @@ pipeline {
             steps {
                 echo 'Building..'
 		sh '/usr/local/bin/docker-compose up --build'
-                }
             }
         }
         stage('Test') {
