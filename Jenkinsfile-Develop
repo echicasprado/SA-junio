@@ -5,10 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                nodejs('NodeJS'){
-                    sh 'npm --version'
-                    sh 'npm install'
-                    sh 'npm start &'
+		sh '/usr/local/bin/docker-compose up --build'
                 }
             }
         }
