@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 3000;
+    port = process.env.PORT || 3420;
     mongoose = require('mongoose'),
     Book = require('./models/book'),
     bodyParser = require('body-parser');
@@ -17,8 +17,8 @@ mongoose.connect('mongodb://softwareA:EstoSeVaADescontrolar!@34.134.68.224:27017
     console.log('ERROR: connecting to Database. ' + err);
   }
 
-  app.listen(3000, function() {
-    console.log("Node server running on http://localhost:3000");
+  app.listen(port, function() {
+    console.log(`Node server running on http://localhost:${port}`);
   });
   
 });
