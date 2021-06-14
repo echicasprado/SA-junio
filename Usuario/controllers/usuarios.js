@@ -15,8 +15,6 @@ exports.findUsuario = function(req, res) {
 
 //Insertar un nuevo usuario
 exports.registrarUsuario = function(req, res) {
-	console.log('POST');
-	console.log(req.body);
 
 	Usuario.find({correo: req.body.correo}, function(err, u){
 		if(err) return res.send(500, err.message)
@@ -42,6 +40,54 @@ exports.registrarUsuario = function(req, res) {
 			}
 		}
 	});
+};
 
-	
+
+//Elimina un usuario
+exports.eliminarUsuario = function(req, res) {
+	Usuario.find({correo: req.body.correo}, function(err, u){
+		if(err) return res.send(500, err.message)
+		else{
+			if(u.length == 0){
+				return res.status(500).jsonp('El usuario no existe');
+			}
+			else{
+				Usuario.findOneAndDelete({correo: req.body.correo}, function(erro) {
+					if(erro) return res.send(500, erro.message);
+					else{
+						res.status(200).jsonp("Usuario eliminado con exito");
+					}
+				})
+			}
+		}
+	});
+}
+
+//Actualiza un usuario
+exports.updateUsuario = function(req, res) {
+	Usuario.findOne({correo: req.body.correo}, function(err, user) {
+
+		user.nombre 	= 	req.body.nombre,
+		user.apellido	=   req.body.apellido,
+		user.correo		= 	req.body.correo,
+		user.password	=   req.body.password,
+		user.telefono	=  	req.body.telefono,
+		user.id_rol		=  	req.body.id_rol,
+		user.estado		=  	req.body.estado
+
+		user.save(function(err) {
+			if(err) return res.send(500, err.message);
+      res.status(200).jsonp(user);
+		});
+	});
+};
+
+
+//Devuelve todos los usuarios
+exports.findAllUsuarios = function(req, res) {
+	Usuario.find(function(err, user) {
+    if(err) res.send(500, err.message);
+
+		res.status(200).jsonp(user);
+	});
 };

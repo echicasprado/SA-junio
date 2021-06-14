@@ -43,3 +43,12 @@ app.route('/Registro')
 
 app.route('/Login')
   .post(Usuarios.findUsuario);
+
+app.route('/Eliminar_Usuario')
+  .post(Usuarios.eliminarUsuario);
+
+app.route('/Usuarios')
+  .get(Usuarios.findAllUsuarios);
+
+app.route('/Actualizar_Usuario')
+  .put(Usuarios.updateUsuario);
