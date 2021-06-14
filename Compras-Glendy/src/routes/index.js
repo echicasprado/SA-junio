@@ -14,7 +14,7 @@ router.post('/compra', (req, res) =>{
         if (err) return console.log("Error no se pudo efectuar la compra", err);
               
         console.log("Compra realizada exitosamente");
-        res.send(true);  //Envío de respuesta
+        res.json(true);  //Envío de respuesta
       });
 
    
