@@ -97,19 +97,55 @@ services:
   #
   #
   #
-  #  microservicio7:
-  #    container_name: eliminarproducto
-  #    image: eliminarproducto
-  #    build:
-  #      context: ./Servicio2/EliminarProducto
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9004:9004
-  #
-  #
+
+  catalogoadd:
+    container_name: catalogoadd
+    image: catalogoadd
+    build:
+      context: ./AddBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47002:3000
+
+  catalogodelete:
+    container_name: catalogodelete
+    image: catalogodelete
+    build:
+      context: ./DeleteBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47003:3430
+  
+  catalogoupdate:
+    container_name: catalogoupdate
+    image: catalogoupdate
+    build:
+      context: ./UpdateBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47004:3420
+  
+  
+  compras:
+    container_name: compras
+    image: compras
+    build:
+      context: ./Compras
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47005:3000
   
   usuario:
     container_name: usuario

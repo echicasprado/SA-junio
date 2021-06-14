@@ -10,7 +10,7 @@ var BookSchema = new Schema({
   price: Number,
   units: Number,
   author: String,
-  category: String
+  category: [{type:String}]
 });
 
 module.exports = mongoose.model('Book', BookSchema);

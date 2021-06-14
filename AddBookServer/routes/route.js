@@ -5,4 +5,8 @@ module.exports = function(app) {
   app.route('/book/addBook')
     .post(addBook.createNewBook);
 
+  app.route('/')
+    .get(function(req, res) {
+      res.send("Hello World!");
+    })
 };
