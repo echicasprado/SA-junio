@@ -18,85 +18,18 @@ services:
   #  volumes:
   #    - "./DataBase/db:/var/lib/mysql"
 
-  #  microservicio1:
-  #    container_name: crearusuario
-  #    image: crearusuario
-  #    build:
-  #      context: ./Servicio1/CrearUsuarios
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9005:9005
-  #
-  #  microservicio2:
-  #    container_name: modificarusuario
-  #    image: modificarusuario
-  #    build:
-  #      context: ./Servicio1/ModificarUsuarios
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9006:9006
-  #
-  #  
-  #  microservicio3:
-  #    container_name: login
-  #    image: login
-  #    build:
-  #      context: ./Servicio1/Login
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9007:9007
-  #
-  #
-  #  microservicio4:
-  #    container_name: ingresarproducto
-  #    image: ingresarproducto
-  #    build:
-  #      context: ./Servicio2/IngresarProducto
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9001:9001
-  #
-  #
-  #  
-  #  microservicio5:
-  #    container_name: modificarproducto
-  #    image: modificarproducto
-  #    build:
-  #      context: ./Servicio2/ModificarProducto
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9002:9002
-  #
-  #
-  #  microservicio6:
-  #    container_name: obtenerproducto
-  #    image: obtenerproducto
-  #    build:
-  #      context: ./Servicio2/ObtenerProducto
-  #      dockerfile: Dockerfile
-  #    restart: always
-  #    networks: 
-  #      - SA
-  #    ports:
-  #      - 9003:9003
-  #
-  #
-  #
+
+  catalogoget:
+    container_name: catalogoget
+    image: catalogoget
+    build:
+      context: ./GetBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47005:3410
 
   catalogoadd:
     container_name: catalogoadd
@@ -145,7 +78,7 @@ services:
     networks: 
       - SA
     ports:
-      - 47005:3000
+      - 47006:3000
   
   usuario:
     container_name: usuario
