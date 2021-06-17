@@ -25,6 +25,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                 
+                    ansiblePlaybook([
+                            inventory   : 'hosts',
+                            playbook    : 'playbook.yml',
+                            installation: 'ansible',
+                            colorized   : true
+                    ])
                 
             }
         }
