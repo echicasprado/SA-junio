@@ -1,7 +1,7 @@
 var assert = require('assert')
 const fetch = require("node-fetch")
 
-var url = 'http://localhost:3000/api/compra';
+var url = 'http://0.0.0.0:3000/api/compra';
 var data = {"producto":[{"nombre": "cirque du freak",
 "precio": 200}],
 "usuario": {"nombre": "glendyco"}};
