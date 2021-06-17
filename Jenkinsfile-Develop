@@ -11,14 +11,14 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-		sh 'ls'
-		sh 'cd Compras'
-		sh 'ls'
-		nodejs('NodeJS'){
-                    sh 'npm --version'
-                    sh 'npm install'
-                    sh 'npm test'
-                }
+		dir("Compras") {
+		    nodejs('NodeJS'){
+                        sh 'npm --version'
+                        sh 'npm install'
+                        sh 'npm test'
+               	    }
+		}
+		
            
             }
         }
