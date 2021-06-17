@@ -5,12 +5,18 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-		sh 'docker-compose --version'
+		sh 'docker-compose up -d --build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+		sh 'cd Compras'
+		nodejs('NodeJS'){
+                    sh 'npm --version'
+                    sh 'npm install'
+                    sh 'npm test'
+                }
            
             }
         }
