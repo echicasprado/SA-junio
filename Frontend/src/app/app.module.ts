@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PedidoComponent } from './pedido/pedido.component';
 import { DenegadoComponent } from './denegado/denegado.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { LibrosComponent } from './libros/libros.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     HomeComponent,
     PedidoComponent,
     DenegadoComponent,
-    CarritoComponent
+    CarritoComponent,
+    LibrosComponent
   ],
   imports: [
     BrowserModule,
