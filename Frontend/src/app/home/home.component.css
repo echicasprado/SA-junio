@@ -5,8 +5,7 @@ html, body{
   color:white;
   background-image: url("../../assets/libros.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
+  height: 200vh;
   max-width: 100vw;
   font-family: "Numans", sans-serif;
 
