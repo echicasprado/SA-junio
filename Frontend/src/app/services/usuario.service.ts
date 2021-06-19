@@ -34,6 +34,7 @@ export class UsuarioService {
   postRegistro(usuario: usuario){    
     const encriptada = this.encryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
     usuario.password = encriptada;
+console.log(usuario)
     return this.http.post(`${this.API_URI}/Registro`, usuario);
   }
 

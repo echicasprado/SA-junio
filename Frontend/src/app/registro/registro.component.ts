@@ -90,6 +90,7 @@ export class RegistroComponent implements OnInit {
       apellido:     user.userLastName,
       correo:       user.userEmail,
       password:     user.userPass,
+      editorial:    "editorial 1",
       telefono:     user.userPhone,
       idRol:        3,
       id_rol:       3,
