@@ -1,7 +1,4 @@
 'use strict';
-
-const { get } = require('../../Compras/src/routes');
-
 module.exports = function(app) {
   var updateBook = require('../controllers/controller');
 
