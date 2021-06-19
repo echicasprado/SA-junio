@@ -10,70 +10,81 @@ import { usuario } from "../models/user";
   templateUrl: './perfil-cliente.component.html',
   styleUrls: ['./perfil-cliente.component.css']
 })
+
+
 export class PerfilClienteComponent implements OnInit {
 
   credentialsInvalid: boolean = false;
   messageError: string = '';
   active = 1;
-  myFormRest = new FormGroup({
-    EditorialName: new FormControl("", [
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(15)
-    ]),
-
-    EditorialPass: new FormControl("", [
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(15)
-    ]),
-
-    EditorialEmail: new FormControl("", [
-      Validators.required,
-      Validators.minLength(12),
-      Validators.maxLength(35),
-      Validators.email
-    ]),
-
-    EditorialAddress: new FormControl("", [
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(15)
-    ]),
-  });
+  usuario: string ="";
+  tipouser: number = JSON.parse(localStorage.getItem('usuario')).id_rol; 
+  
 
   myForm = new FormGroup({
-    userName: new FormControl("", [
+    
+    userName: new FormControl(JSON.parse(localStorage.getItem('usuario')).nombre , [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(15)
     ]),
-    userLastName: new FormControl("", [
+    userLastName: new FormControl(JSON.parse(localStorage.getItem('usuario')).apellido , [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(15)
     ]),
-    userEmail: new FormControl("", [
+    userEmail: new FormControl(JSON.parse(localStorage.getItem('usuario')).correo , [
       Validators.required,
       Validators.minLength(12),
       Validators.maxLength(35),
       Validators.email
     ]),
-    userPhone: new FormControl("", [
+    userPhone: new FormControl(JSON.parse(localStorage.getItem('usuario')).telefono , [
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(15)
     ]),
-    userPass: new FormControl("", [
+    userPass: new FormControl(JSON.parse(localStorage.getItem('usuario')).password , [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(15)
+    ]),
+    
+  });
+
+
+  myFormRest = new FormGroup({
+    EditorialName: new FormControl(JSON.parse(localStorage.getItem('usuario')).nombre , [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(15)
+    ]),
+
+    EditorialPass: new FormControl(JSON.parse(localStorage.getItem('usuario')).password , [
+      Validators.required,
+      Validators.minLength(4),
+      Validators.maxLength(15)
+    ]),
+
+    EditorialEmail: new FormControl(JSON.parse(localStorage.getItem('usuario')).correo , [
+      Validators.required,
+      Validators.minLength(12),
+      Validators.maxLength(35),
+      Validators.email
+    ]),
+
+    EditorialPhone: new FormControl(JSON.parse(localStorage.getItem('usuario')).telefono , [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(15)
     ]),
   });
-  constructor(private registerService: UsuarioService, private router:Router) { }
+  
+  
+  constructor(private updateService: UsuarioService, private router:Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
+
 
   onSubmit(): void {
     const user = this.myForm.value;
@@ -84,20 +95,25 @@ export class PerfilClienteComponent implements OnInit {
       setTimeout(() => {this.credentialsInvalid = false;},3500);
       return;
     }
+      
     const usuario: usuario = {
       nombre:       user.userName,
       apellido:     user.userLastName,
       correo:       user.userEmail,
       password:     user.userPass,
       telefono:     user.userPhone,
-      idRol:        3,
-      id_rol:       3,
+      idRol:        this.tipouser,
+      id_rol:       this.tipouser,
       estado:       1
     }
     console.log('***' ,usuario);
-    this.registerService.postRegistro(usuario).subscribe((data: {msg:string})=> {
-      if(data.msg === 'Ya existe un usuario con ese correo'){        
-        this.messageError = data.msg;
+    var res;
+
+    this.updateService.updateUser(usuario).subscribe((data:string)=> {
+      res = data;
+      console.log("probando"+res);
+      if(res === 'El usuario no existe'){        
+        this.messageError = res;
         this.credentialsInvalid = true;
         setTimeout(() => {this.credentialsInvalid = false;},3500);
         return;
