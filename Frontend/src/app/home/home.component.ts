@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
 
 
@@ -14,21 +15,32 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
   
-  public listaproductos = [] 
-  url: string = 'http://35.202.232.78:4010/producto/leer-productos';
+  public listaproductos = [] //esta ya no entra los que tiene stock en 0
+  public listaproductos2 = [] //esta recibe todos
+  url: string = 'http://34.134.68.224:47005/book/getBooks'; //obtener catalogo 
   error;
   datos:any[]
- 
 
-  constructor(private http: HttpClient) { 
+
+  constructor(private http: HttpClient) {
+   
     if(localStorage.getItem('productoscarrito')){
       this.listacarrito=JSON.parse(localStorage.getItem('productoscarrito'))
     }
-   
+    
     this.http.get(this.url).subscribe((data:any)=> {//data es la respuesta
-      this.listaproductos=data.datos;
+      
+      this.listaproductos2=data; //data.datos
+      for (let elemento of this.listaproductos2) { 
+        if( elemento.units!="0"){
+          this.listaproductos.push(elemento)
+        }
+       }
+     
       },error => this.error = error);
       
+     
+  
   }
    // <---
   
