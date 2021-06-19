@@ -1,1 +1,157 @@
-<p>libros works!</p>
+<html>
+<head>
+    <style type="text/css" ref="" ></style>
+</head>
+<body>
+    <div align="right" class="encabezado">
+      
+    </div>
+    <div class="card">
+
+        <div id="titulo">
+            <h2 id="testProductos">TUS LIBROS</h2>
+          </div>
+          <br /><br />
+          <div class="container">
+            <div id="botones" class="row justify-content-center">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                <button id="modalTest" type="button" class="crear" (click)="crear(contenidoCrear)"> Crear </button>
+              </div>
+            </div>
+          </div>
+       
+        <div  class="libros" >
+            <div class="row">
+                <div  *ngFor="let pro of lista_editorial" class="col-xs-10 col-sm-6 col-md-4 product">
+                 <div class="tarjeta" >
+                    <img src="data:image/png;base64,{{pro.coverPage}}" alt=" " />
+                     <h5>{{pro.title}}</h5>
+                     <h5>Q.{{pro.price}}</h5>
+                     <h5>Unidades:{{pro.units}}</h5>
+                     <button class="editar" 
+                     (click)="editar(pro, contenidoEditar);">Editar</button>
+                     <button class="eliminar" (click)="eliminarLibro(pro)">Eliminar</button>
+                     </div>
+                </div>
+            </div>
+     
+        </div>
+        
+    </div>
+
+
+    <ng-template #contenidoEditar let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Editar Libro</h4>
+            <button class="close" aria-label="close" type="button" (click)="eliminarLibroStorage();modal.dismiss(); ">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <form [formGroup]="myFormEditar">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Titulo" formControlName="title" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Autor" formControlName="author" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Categoria" formControlName="category" />
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Precio" formControlName="price" />
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Unidades" formControlName="units" />
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="message-text" placeholder="Descripción" formControlName="description">
+
+                    </textarea>
+                </div>
+            </form>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" [disabled]="myFormEditar.invalid" class="btn btn-success" (click)="editarLibro()" >
+            Editar
+            </button>
+
+            <button
+            type="button"
+            class="btn btn-danger"
+            (click)="eliminarLibroStorage(); modal.close();"
+            >
+            Salir
+            </button>
+        </div>
+        <p *ngIf="showAlert">
+            <ngb-alert type="{{ tipoAlert }}" (closed)="staticAlertClosed = true">{{
+            messageError
+            }}</ngb-alert>
+        </p>
+    </ng-template>
+
+
+
+
+    <ng-template #contenidoCrear let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Crear Libro</h4>
+            <button class="close" aria-label="close" type="button" (click)="modal.dismiss(); ">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <form [formGroup]="myFormCrear">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Titulo" formControlName="title" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Autor" formControlName="author" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Categoria" formControlName="category" />
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Precio" formControlName="price" />
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Unidades" formControlName="units" />
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="message-text" placeholder="Descripción" formControlName="description">
+
+                    </textarea>
+                </div>
+
+                <div class="form-group">
+                    <input id="inputUpload" type="file" (change)="handleUpload($event)" />
+                </div>
+            </form>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" [disabled]="myFormCrear.invalid" class="btn btn-success" (click)="crearLibro()" >
+            Crear
+            </button>
+
+            <button
+            type="button"
+            class="btn btn-danger"
+            (click)="modal.close();"
+            >
+            Salir
+            </button>
+        </div>
+        <p *ngIf="showAlert">
+            <ngb-alert type="{{ tipoAlert }}" (closed)="staticAlertClosed = true">{{
+            messageError
+            }}</ngb-alert>
+        </p>
+    </ng-template>
+</body>
+</html>
+
