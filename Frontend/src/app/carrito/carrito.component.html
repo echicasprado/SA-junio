@@ -13,9 +13,9 @@
                 <div class="">
                     <div  *ngFor="let pro of listacarrito"  class="product" >
                      <div class="tarjeta" >
-                         <img src="{{pro.url_imagen}}" alt=" " />
-                         <h3>{{pro.nombre}}</h3>
-                         <h3>Q.{{pro.precio}}</h3>
+                        <img src="data:image/png;base64,{{pro.coverPage}}" alt=" " />
+                         <h3>Titulo: {{pro.title}}</h3>
+                         <h3>Precio Q.{{pro.price}}</h3>
                          <button class="btn btn-info" (click)="quitarCarrito(pro)">Eliminar del carrito</button>
                         
                          </div>
