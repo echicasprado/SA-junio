@@ -10,3 +10,13 @@ exports.getBooks = function(req, res){
         res.json(books);
     });
 };
+
+exports.getBooksEdit = function(req, res){
+    console.log(req.body.editorial);
+
+    Book.find({editorial: req.body.editorial}, function(err, books){
+        if(err) res.send(500, err.message);
+        console.log(books);
+        res.json(books);
+    });
+}

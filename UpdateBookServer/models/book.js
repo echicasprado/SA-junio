@@ -10,6 +10,7 @@ var BookSchema = new Schema({
   price: Number,
   units: Number,
   author: String,
+  editorial: String,
   category: [{type:String}]
 });
 
