@@ -9,6 +9,7 @@ import { DenegadoComponent } from "./denegado/denegado.component";
 import { UsuarioGuard } from "./guards/usuario.guard";
 import { AdministradorGuard } from "./guards/administrador.guard";
 import { CarritoComponent } from './carrito/carrito.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 const routes: Routes = [
  
   { 
@@ -40,6 +41,11 @@ const routes: Routes = [
   {
   path: 'carrito', 
   component: CarritoComponent 
+},
+
+{
+  path: 'perfil-cliente', 
+  component: PerfilClienteComponent
 },
 ];
 

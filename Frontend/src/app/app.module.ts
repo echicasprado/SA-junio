@@ -22,6 +22,7 @@ import { PedidoComponent } from './pedido/pedido.component';
 import { DenegadoComponent } from './denegado/denegado.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { LibrosComponent } from './libros/libros.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LibrosComponent } from './libros/libros.component';
     PedidoComponent,
     DenegadoComponent,
     CarritoComponent,
-    LibrosComponent
+    LibrosComponent,
+    PerfilClienteComponent
   ],
   imports: [
     BrowserModule,
