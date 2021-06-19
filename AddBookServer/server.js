@@ -5,6 +5,9 @@ var express = require('express'),
     Book = require('./models/book'),
     bodyParser = require('body-parser');
 
+var cors = require('cors')
+
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
