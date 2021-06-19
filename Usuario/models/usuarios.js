@@ -7,6 +7,7 @@ exports = module.exports = function(app, mongoose){
         nombre:     { type: String },
         apellido:   { type: String },
         correo:     { type: String },
+        editorial:  { type: String },
         password:   { type: String },
         telefono:   { type: Number },
         id_rol:     { type: Number },
