@@ -9,7 +9,7 @@ import { usuario } from "../models/user";
   providedIn: 'root'
 })
 export class UsuarioService {
-  API_URI = "http://34.134.68.224/:47001";
+  API_URI = "http://34.134.68.224:47001";
 
 /*
   API_URI = "http://35.239.187.92:4040";

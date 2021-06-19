@@ -69,6 +69,13 @@ export class RegistroComponent implements OnInit {
       Validators.minLength(4),
       Validators.maxLength(15)
     ]),
+    userType: new FormControl("", [
+      Validators.required,
+      Validators.minLength(1),
+      Validators.maxLength(1)
+    ]),
+
+
   });
 
   constructor(private registerService: UsuarioService, private router:Router) { }
@@ -92,12 +99,13 @@ export class RegistroComponent implements OnInit {
       password:     user.userPass,
       editorial:    "editorial 1",
       telefono:     user.userPhone,
-      idRol:        3,
-      id_rol:       3,
+      idRol:        +user.userType,
+      id_rol:       +user.userType,
       estado:       1
     }
     console.log('***' ,usuario);
     this.registerService.postRegistro(usuario).subscribe((data: {msg:string})=> {
+      console.log(data)
       if(data.msg === 'Ya existe un usuario con ese correo'){        
         this.messageError = data.msg;
         this.credentialsInvalid = true;
