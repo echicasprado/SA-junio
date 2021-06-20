@@ -1,12 +1,13 @@
 html, body{
-   background: rgb(238, 212, 163);
+   background: rgb(190, 157, 95);
  
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color:white;
+  color:rgb(250, 244, 244);
   background-image: url("../../assets/libros.jpg");
   background-size: cover;
-  height: 200vh;
-  max-width: 100vw;
+  background-repeat:repeat;
+  height: 100%;
+  max-width: 100%;
   font-family: "Numans", sans-serif;
 
 }
