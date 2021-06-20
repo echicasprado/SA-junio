@@ -42,7 +42,15 @@ const routes: Routes = [
   {
   path: 'carrito', 
   component: CarritoComponent 
-},
+  },
+  {
+  path: 'libros', 
+  component: LibrosComponent
+  },
+  {
+  path: 'perfil-cliente', 
+  component: PerfilClienteComponent 
+  },
 ];
 
 @NgModule({
