@@ -4,6 +4,7 @@ import { libro } from '../models/libro';
 import { nuevo_libro } from '../models/libro';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -33,7 +34,7 @@ export class LibrosComponent {
   error;
   datos:any[]
 
-  constructor(private http: HttpClient, private modal:NgbModal) { 
+  constructor(private http: HttpClient, private modal:NgbModal, private router : Router) { 
     
     var u = localStorage.getItem('usuario');
     var usuario = JSON.parse(u);
@@ -48,7 +49,18 @@ export class LibrosComponent {
   }
    // <---
     
+  ngOnInit(): void {
+    try{
+      var u = localStorage.getItem('usuario');
+      var usuario = JSON.parse(u);
+      if(usuario.id_rol != 2){
+        this.router.navigate(["denegado"]);
+      }
+    } catch(error){
 
+    }
+    
+  }
    
   myFormEditar = new FormGroup({
     _id: new FormControl(""),

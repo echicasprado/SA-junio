@@ -11,6 +11,7 @@ import { AdministradorGuard } from "./guards/administrador.guard";
 import { CarritoComponent } from './carrito/carrito.component';
 import { LibrosComponent } from './libros/libros.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 const routes: Routes = [
  
   { 
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
   path: 'perfil-cliente', 
   component: PerfilClienteComponent 
+  },
+  {
+    path: 'usuarios', 
+    component: UsuariosComponent 
   },
 ];
 

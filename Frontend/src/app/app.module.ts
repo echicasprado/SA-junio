@@ -23,6 +23,7 @@ import { DenegadoComponent } from './denegado/denegado.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { LibrosComponent } from './libros/libros.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.componen
     DenegadoComponent,
     CarritoComponent,
     LibrosComponent,
-    PerfilClienteComponent
+    PerfilClienteComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
