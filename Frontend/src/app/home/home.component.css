@@ -1,0 +1,68 @@
+html, body{
+   background: rgb(190, 157, 95);
+ 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:rgb(250, 244, 244);
+  background-image: url("../../assets/libros.jpg");
+  background-size: cover;
+  background-repeat:repeat;
+  height: 100%;
+  max-width: 100%;
+  font-family: "Numans", sans-serif;
+
+}
+
+
+
+.card {    /* este es para la pantallita negra sobrepuesta*/
+ 
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-bottom: 30px;
+    width: 1250px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  
+  }
+
+.product img {
+width: 200px;
+height: 200px;
+
+
+}
+.product h3{
+  font-size: 1.7em;
+  margin-top: 8px;
+  margin-bottom: 7px;
+ 
+}
+.tarjeta {
+  border-radius:4px;
+  margin: 1em;
+
+/* Vertical | Horizontal */
+margin: 5% auto;
+
+/* Arriba | Horizontal | Abajo */
+margin: 1em auto 2em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.75), 0 1px 2px rgba(0, 0, 0, 0.75);
+ 
+  text-align: center;
+}
+
+.card h1{
+  text-align: center;
+
+}
+.encabezado button{
+  margin-right: 50px;
+  text-align: right;
+  background-image:url("../../assets/carrito2.jpg");
+  width: 100px;
+  height: 64px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.75), 0 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+.tarjeta button{
+  background-color: #ffc312;
+}

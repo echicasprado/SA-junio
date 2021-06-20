@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+		sh 'docker-compose up -d --build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+		dir("Compras") {
+		    nodejs('NodeJS'){
+                        sh 'npm --version'
+                        sh 'npm install'
+                        sh 'npm test'
+               	    }
+		}
+		
+           
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                 
+                    ansiblePlaybook([
+                            inventory   : 'hosts',
+                            playbook    : 'playbook.yml',
+                            installation: 'ansible',
+                            colorized   : true
+                    ])
+                
+            }
+        }
+    }
+}

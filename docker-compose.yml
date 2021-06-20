@@ -1,0 +1,116 @@
+version: '3.1'
+
+services:
+
+  #bd:
+  #  container_name: mysql
+  #  image: mysql:5.7
+  #  restart: always
+  #  environment:
+  #    MYSQL_DATABASE: "food"
+  #    MYSQL_USER: "admin"
+  #    MYSQL_PASSWORD: "password"
+  #    MYSQL_ROOT_PASSWORD: "password"
+  #  ports:
+  #    - 3306:3306
+  #  networks: 
+  #    - SA
+  #  volumes:
+  #    - "./DataBase/db:/var/lib/mysql"
+
+
+  catalogoget:
+    container_name: catalogoget
+    image: catalogoget
+    build:
+      context: ./GetBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47005:3410
+
+  catalogoadd:
+    container_name: catalogoadd
+    image: catalogoadd
+    build:
+      context: ./AddBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47002:3000
+
+  catalogodelete:
+    container_name: catalogodelete
+    image: catalogodelete
+    build:
+      context: ./DeleteBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47003:3430
+  
+  catalogoupdate:
+    container_name: catalogoupdate
+    image: catalogoupdate
+    build:
+      context: ./UpdateBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47004:3420
+  
+  
+  compras:
+    container_name: compras
+    image: compras
+    build:
+      context: ./Compras
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47006:3000
+  
+  usuario:
+    container_name: usuario
+    image: usuario
+    build:
+      context: ./Usuario
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47001:3000
+
+
+  frontend:
+    container_name: frontend
+    image: frontend
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    restart: always
+    # environment:
+    #   REACT_APP_IP_2: "35.193.209.112"
+    networks: 
+      - SA
+    ports:
+      - 47000:4200
+
+networks: 
+    SA:
+
+
+
+  
+

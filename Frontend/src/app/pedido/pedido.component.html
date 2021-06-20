@@ -1,0 +1,96 @@
+<div id="containerProducts">
+  <br>
+    <br>
+    <div id="titulo">
+      <h1>pedidos</h1>
+    </div>
+    <br>
+    <br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table  class="table table-striped" style="text-align-last: center;">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Usuario</th>
+                  <th scope="col">Direccion</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Fecha</th>            
+                  <th scope="col">Estado</th>
+                </tr>
+              </thead>
+              <tbody>        
+                  <tr *ngFor="let orden of listado; index as i">
+                      <!-- <input id="prodId" name="prodId" type="hidden" value="{{orden.id}}" #idUsuario>  YA NO LO USO PERO SE PUEDE USAR PARA GUARDAR UN VALOR-->
+                      <th>{{i}}</th>
+                      <td>{{orden.usuario}}</td>
+                      <td>{{orden.direccion}}</td>
+                      <td>{{orden.total}}</td>
+                      <td>{{orden.fecha}}</td>
+                      <td>{{orden.estado}}
+                          <button type="button" class="btn btn-info" (click)="openCentrado(contenidoCambiar, orden.id, i);">Cambiar</button>
+                          <button type="button" class="btn btn-danger" (click)="eliminar(orden.id);">Eliminar</button>
+                      </td>
+                  </tr>
+              </tbody>
+                
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    
+     
+    
+</div>
+
+
+
+
+
+
+
+
+<ng-template #contenidoCambiar let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Cambiar Estado</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <h5 style="text-align: center;"> No. Orden: {{this.addNumOrden}}</h5>
+    <div class="modal-body">
+        <div ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+            <label ngbButtonLabel>
+              <input ngbButton type="radio" [value]="1"> Nueva orden
+            </label><br>
+            <label ngbButtonLabel>
+              <input ngbButton type="radio" [value]="2"> En preparación
+            </label><br>
+            <label ngbButtonLabel>
+              <input ngbButton type="radio" [value]="3"> En camino
+            </label>
+            <label ngbButtonLabel>
+                <input ngbButton type="radio" [value]="4"> Entregado
+            </label>
+            <label ngbButtonLabel>
+                <input ngbButton type="radio" [value]="5"> Cancelado
+            </label>
+            <label ngbButtonLabel>
+                <input ngbButton type="radio" [value]="6"> Pagada
+            </label>
+        </div>
+       
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="cambiarEstado();" >Cambiar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close(); ngOnInit()">Salir</button>
+    </div>
+    <p *ngIf="showAlert">
+      <ngb-alert type="{{tipoAlert}}" (closed)="staticAlertClosed = true"></ngb-alert>
+    </p>
+</ng-template>

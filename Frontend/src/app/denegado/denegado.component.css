@@ -1,0 +1,20 @@
+h1 {
+  color: rgb(114, 114, 114);
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 300px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+}
+
+h3 {
+  color: rgb(114, 114, 114);
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 50px;
+
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: center;
+}
