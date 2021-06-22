@@ -17,19 +17,31 @@ services:
   #    - SA
   #  volumes:
   #    - "./DataBase/db:/var/lib/mysql"
-
-
-  catalogoget:
-    container_name: catalogoget
-    image: catalogoget
+  frontend:
+    container_name: frontend
+    image: frontend
     build:
-      context: ./GetBookServer
+      context: ./Frontend
+      dockerfile: Dockerfile
+    restart: always
+    # environment:
+    #   REACT_APP_IP_2: "35.193.209.112"
+    networks: 
+      - SA
+    ports:
+      - 47000:4200
+
+  usuario:
+    container_name: usuario
+    image: usuario
+    build:
+      context: ./Usuario
       dockerfile: Dockerfile
     restart: always
     networks: 
       - SA
     ports:
-      - 47005:3410
+      - 47001:3000
 
   catalogoadd:
     container_name: catalogoadd
@@ -66,7 +78,18 @@ services:
       - SA
     ports:
       - 47004:3420
-  
+
+  catalogoget:
+    container_name: catalogoget
+    image: catalogoget
+    build:
+      context: ./GetBookServer
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47005:3410
   
   compras:
     container_name: compras
@@ -80,32 +103,41 @@ services:
     ports:
       - 47006:3000
   
-  usuario:
-    container_name: usuario
-    image: usuario
+  eliminarsolicitudes:
+    container_name: eliminarsolicitudes
+    image: eliminarsolicitudes
     build:
-      context: ./Usuario
+      context: ./EliminarSolicitudes
       dockerfile: Dockerfile
     restart: always
     networks: 
       - SA
     ports:
-      - 47001:3000
+      - 47007:3000
 
-
-  frontend:
-    container_name: frontend
-    image: frontend
+  obtenersolicitudes:
+    container_name: obtenersolicitudes
+    image: obtenersolicitudes
     build:
-      context: ./Frontend
+      context: ./ObtenerSolicitudes
       dockerfile: Dockerfile
     restart: always
-    # environment:
-    #   REACT_APP_IP_2: "35.193.209.112"
     networks: 
       - SA
     ports:
-      - 47000:4200
+      - 47008:3000 
+
+  solicitarlibros:
+    container_name: solicitarlibros
+    image: solicitarlibros
+    build:
+      context: ./SolicitarLibros
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47009:3000 
 
 networks: 
     SA:
