@@ -12,6 +12,8 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { LibrosComponent } from './libros/libros.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { SolicitarLibroComponent } from './solicitar-libro/solicitar-libro.component';
+import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.component';
 const routes: Routes = [
  
   { 
@@ -55,6 +57,14 @@ const routes: Routes = [
   {
     path: 'usuarios', 
     component: UsuariosComponent 
+  },
+  {
+    path: 'solicitar', 
+    component: SolicitarLibroComponent 
+  },
+  {
+    path: 'solicitudes', 
+    component: VerSolicitudesComponent 
   },
 ];
 

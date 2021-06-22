@@ -2,7 +2,7 @@ export interface libro{
     _id:            number,
     author:         string,
     category:       string,
-    cover_page:     string,
+    coverPage:     string,
     description:    string,
     editorial:      string,
     price:          number,
@@ -13,7 +13,7 @@ export interface libro{
 export interface nuevo_libro{
     author:         string,
     category:       string,
-    cover_page:     string,
+    coverPage:     string,
     description:    string,
     editorial:      string,
     price:          number,
