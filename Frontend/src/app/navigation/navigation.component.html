@@ -9,25 +9,39 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <div class=""*ngIf="this.tipouser == 0">
             <li class="nav-item" >
-            <a class="nav-link" routerLink="/" routerLinkActive="active"
-              >Inicio</a
-            >
-          </li>
+              <a class="nav-link" routerLink="/" routerLinkActive="active"
+                >Inicio</a
+              >
+            </li>
           </div>
 
           <div class=""*ngIf="this.tipouser == 1">
             <li class="nav-item" >
-            <a class="nav-link" routerLink="/usuarios" routerLinkActive="active"
-              >Usuarios</a
-            >
-          </li>
+              <a class="nav-link" routerLink="/usuarios" routerLinkActive="active"
+                >Usuarios</a
+              >
+            </li>
           </div>
 
           <div class=""*ngIf="this.tipouser == 2">
             <li class="nav-item" >
-            <a class="nav-link" routerLink="/libros" routerLinkActive="active"
-              >Libros</a>
-          </li>
+              <a class="nav-link" routerLink="/libros" routerLinkActive="active"
+                >Libros</a>
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 2">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/solicitudes" routerLinkActive="active"
+                >Solicitudes</a>
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 3">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/solicitar" routerLinkActive="active"
+                >Solicitar Libro</a>
+            </li>
           </div>
           
         </ul>

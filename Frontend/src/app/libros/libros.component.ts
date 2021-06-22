@@ -57,7 +57,7 @@ export class LibrosComponent {
         this.router.navigate(["denegado"]);
       }
     } catch(error){
-
+      this.router.navigate(["denegado"]);
     }
     
   }
