@@ -27,11 +27,13 @@ export class LibrosComponent {
   imag64 = '';
   public listalibros: libro[] = []
   public lista_editorial: libro[] = []
+  
   url: string = 'http://34.134.68.224:47005/book/getBooks';
   url_editar: string = 'http://34.134.68.224:47004/book/updateBook'
   url_eliminar: string = 'http://34.134.68.224:47003/book/deleteBook'
   url_crear: string = 'http://34.134.68.224:47002/book/addBook'
-  url_newBitacora: string = 'http://localhost:5500/bitacora/newBitacora'
+  url_newBitacora: string = 'http://localhost:3450/bitacora/newBitacora'
+
   error;
   datos:any[]
 
@@ -86,6 +88,12 @@ export class LibrosComponent {
     editorial: new FormControl("")
   });
 
+  myBitacora = new FormGroup({
+    editorial: new FormControl(""),
+    operacion: new FormControl(""),
+    description: new FormControl("")
+  });
+
   handleUpload(event) {
 
     const file = event.target.files[0];
@@ -138,6 +146,7 @@ export class LibrosComponent {
         "editorial": JSON.parse(localStorage.getItem('usuario')).nombre
       })
     }
+
     creado = this.myFormCrear.value;
 
     console.log("valor creado", creado);
@@ -145,17 +154,13 @@ export class LibrosComponent {
     this.http.post(this.url_crear, creado).subscribe((data:libro[])=> {//data es la respuesta
       res = data;
       console.log("Valor de res", res)
+      this.crearBitacora("Nuevo libro",`Autor: ${creado.author}, Titulo: ${creado.title}, Categoria: ${creado.category}, Precio${creado.price}, Unidades: ${creado.units}`);
       location.reload();
       },error => this.error = error); 
 
     this.imagen = '';
     this.imag64 = '';
   }
-
-  borrarCrear(){
-
-  }
-
 
   editar(libro, abrir){
     localStorage.setItem('producto', JSON.stringify(libro));
@@ -184,6 +189,7 @@ export class LibrosComponent {
     
     this.http.post(this.url_editar, editado).subscribe((data:libro[])=> {//data es la respuesta
       res = data;
+      this.crearBitacora("Editar libro",`Autor: ${res.author}, Titulo: ${res.title}, Categoria: ${res.category}, Precio${res.price}, Unidades: ${res.units}`);
       location.reload();
       },error => this.error = error); 
   }
@@ -198,8 +204,26 @@ export class LibrosComponent {
     this.http.post(this.url_eliminar, libro).subscribe((data:[])=> {//data es la respuesta
       res = data;
       console.log("Valor de res", res);
+      this.crearBitacora("Eliminar libro",`Autor: ${libro.author}, Titulo: ${libro.title}, Categoria: ${libro.category}, Precio${libro.price}, Unidades: ${libro.units}`);
       location.reload();
       },error => this.error = error);
+  }
+
+  crearBitacora(tipoOperacion,descripcion){
+    var res;
+    var creado;
+
+    this.myBitacora.setValue({
+      "editorial": JSON.parse(localStorage.getItem('usuario')).nombre,
+      "operacion": tipoOperacion,
+      "description": descripcion
+    })
+
+    creado = this.myBitacora.value;
+
+    this.http.post(this.url_newBitacora, creado).subscribe((data:libro[])=> {//data es la respuesta
+      console.log("Valor de res", res)
+      },error => this.error = error); 
   }
 
 }

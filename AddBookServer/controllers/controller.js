@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 exports.createNewBook = function(req, res){
     var newBook = new Book(req.body);
-
+    
     newBook.save(function(err,book){
         if(err)
             res.send(err);

@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
 
 exports.createNewBitacora = function(req, res){
     var newBitacora = new Bitacora(req.body);
+    console.log(newBitacora);
     newBitacora.save(function(err,bitacora){
         if(err)
             res.send(err);

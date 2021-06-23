@@ -1,6 +1,6 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 5500;
+    port = process.env.PORT || 3450;
     mongoose = require('mongoose'),
     Bitacora = require('./models/bitacora'),
     bodyParser = require('body-parser');
