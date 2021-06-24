@@ -23,6 +23,14 @@
             </li>
           </div>
 
+          <div class=""*ngIf="this.tipouser == 1">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/log-editorial" routerLinkActive="active"
+                >Log Editoriales</a
+              >
+            </li>
+          </div>
+
           <div class=""*ngIf="this.tipouser == 2">
             <li class="nav-item" >
               <a class="nav-link" routerLink="/libros" routerLinkActive="active"
