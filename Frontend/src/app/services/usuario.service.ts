@@ -4,17 +4,15 @@ import {Router} from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 
 import { usuario } from "../models/user";
+import { URLs} from "../urls/urls";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  API_URI = "http://34.134.68.224:47001";
+  myURL = new URLs();
 
-/*
-  API_URI = "http://35.239.187.92:4040";
-  API_URI2 = "http://35.239.187.92:4041";
-  API_URI3 = "http://35.239.187.92:4043";*/
+  API_URI = this.myURL.API_URI;
 
   tokenFromUI: string = "SA-Encryption";
 

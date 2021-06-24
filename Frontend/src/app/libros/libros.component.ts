@@ -5,6 +5,7 @@ import { nuevo_libro } from '../models/libro';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
+import { URLs } from '../urls/urls';
 
 
 @Component({
@@ -28,11 +29,13 @@ export class LibrosComponent {
   public listalibros: libro[] = []
   public lista_editorial: libro[] = []
   
-  url: string = 'http://34.134.68.224:47005/book/getBooks';
-  url_editar: string = 'http://34.134.68.224:47004/book/updateBook'
-  url_eliminar: string = 'http://34.134.68.224:47003/book/deleteBook'
-  url_crear: string = 'http://34.134.68.224:47002/book/addBook'
-  url_newBitacora: string = 'http://localhost:3450/bitacora/newBitacora'
+  myURL = new URLs();
+  url: string = this.myURL.url;
+  url_editar: string = this.myURL.url_editar;
+  url_eliminar: string = this.myURL.url_eliminar;
+  url_crear: string = this.myURL.url_crear;
+  url_newBitacora: string = this.myURL.url_newBitacora;
+
 
   error;
   datos:any[]

@@ -139,6 +139,30 @@ services:
     ports:
       - 47009:3000 
 
+  crearbitacora:
+    container_name: crearbitacora
+    image: crearbitacora
+    build:
+      context: ./CrearBitacora
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47010:3450
+
+  obtenerbitacora:
+    container_name: obtenerbitacora
+    image: obtenerbitacora
+    build:
+      context: ./ObtenerBitacora
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47011:3460
+
 networks: 
     SA:
 
