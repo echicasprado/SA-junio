@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { log } from '../models/log';
+import { URLs } from '../urls/urls';
 
 @Component({
   selector: 'app-log-editorial',
@@ -10,7 +11,8 @@ import { log } from '../models/log';
 })
 export class LogEditorialComponent implements OnInit {
 
-  url_get: string = 'http://34.69.133.221:47011/bitacora/getBitacora'
+  myURL = new URLs();
+  url_get: string = this.myURL.url_getBitacora;
   public lista_log: log[]  = [];
   error;
 
