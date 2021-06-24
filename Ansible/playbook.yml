@@ -1,0 +1,24 @@
+---
+- name: Deploy App
+  connection: ssh
+  gather_facts: false
+  hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python2.7
+  tasks:
+    - name: pull from git
+      git:
+        repo: git@github.com:echicasprado/SA-junio.git
+        dest: /home/samuelrosales/SA-junio
+        key_file: /home/samuelrosales/.ssh/id_rsa
+        accept_hostkey: yes
+        force: yes
+        update: yes
+        version: develop
+    - name: Docker Compose Build
+      docker_compose: 
+        project_src: /home/samuelrosales/SA-junio/
+        build: yes
+
+
+
