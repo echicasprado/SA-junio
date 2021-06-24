@@ -1,0 +1,32 @@
+<html>
+<head>
+    <style type="text/css" ref="" ></style>
+</head>
+<body>
+    <div align="right" class="encabezado">
+      
+    </div>
+    <div class="card">
+
+        <div id="titulo">
+            <h2 id="testProductos">LOG EDITORIALES</h2>
+          </div>
+          <br /><br />
+       
+        <div  class="libros" >
+            <div class="row">
+                <div  *ngFor="let pro of lista_log" class="col-xs-10 col-sm-6 col-md-4 product">
+                    <div class="tarjeta" >
+                        <h5>Editorial: {{pro.editorial}}</h5>
+                        <h5>Accion: {{pro.operacion}}</h5>
+                        <h5>Fecha: {{pro.fecha}}</h5>
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+        
+    </div>
+</body>
+</html>
+

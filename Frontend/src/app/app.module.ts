@@ -26,6 +26,7 @@ import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.componen
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { SolicitarLibroComponent } from './solicitar-libro/solicitar-libro.component';
 import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.component';
+import { LogEditorialComponent } from './log-editorial/log-editorial.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.compo
     PerfilClienteComponent,
     UsuariosComponent,
     SolicitarLibroComponent,
-    VerSolicitudesComponent
+    VerSolicitudesComponent,
+    LogEditorialComponent
   ],
   imports: [
     BrowserModule,
