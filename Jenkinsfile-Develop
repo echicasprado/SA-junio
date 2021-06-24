@@ -61,9 +61,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                    dir("Ansible") { 
-                        sh 'ansible-playbook playbook.yml'
-		    }
+                dir("Ansible") { 
+                    sh 'ansible-playbook playbook.yml'
+		}
             }
         }
     }
