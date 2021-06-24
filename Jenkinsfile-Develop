@@ -61,8 +61,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                dir("Ansible") { 
-                    sh 'ansible-playbook playbook.yml'
+                ansiblePlaybook('Ansible/playbook.yml') {
+		    inventoryPath('hosts.ini')	
 		}
             }
         }
