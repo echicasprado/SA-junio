@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { usuario } from '../models/user';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { URLs } from '../urls/urls';
 
 @Component({
   selector: 'app-usuarios',
@@ -12,9 +13,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UsuariosComponent implements OnInit {
 
-  url: string = 'http://34.134.68.224:47001/Usuarios';
-  url_eliminar: string = 'http://34.134.68.224:47001/Eliminar_Usuario';
-  url_editar: string = 'http://34.134.68.224:47001/Actualizar_Usuario';
+  myURL = new URLs();
+  url: string = this.myURL.url_Usuarios;
+  url_eliminar: string = this.myURL.url_Eliminar_Usuario;
+  url_editar: string = this.myURL.url_Actualizar_Usuario;
   public listaUsuarios = []
   error;
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
 import {Router} from '@angular/router';
+import { URLs } from '../urls/urls';
 
 import { solicitud } from "../models/solicitud";
 
@@ -12,7 +13,8 @@ import { solicitud } from "../models/solicitud";
 })
 export class SolicitarLibroComponent implements OnInit {
 
-  url: string = 'http://35.238.189.26:47009/SolicitarLibro';
+  myURL = new URLs();
+  url: string = this.myURL.url_solicitarLibro;
   imagen = '';
   imag64 = '';
   error;

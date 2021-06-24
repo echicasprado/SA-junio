@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { get_solicitud } from '../models/solicitud';
 import { nuevo_libro, libro } from '../models/libro';
+import { URLs } from '../urls/urls';
 
 @Component({
   selector: 'app-ver-solicitudes',
@@ -13,9 +14,10 @@ import { nuevo_libro, libro } from '../models/libro';
 })
 export class VerSolicitudesComponent implements OnInit {
 
-  url_get: string = 'http://35.238.189.26:47008/ObtenerSolicitudes'
-  url_eliminar: string = 'http://35.238.189.26:47007/EliminarSolicitud' //URL para eliminar la solicitud
-  url_crear: string = 'http://35.238.189.26:47002/book/addBook' //URL para crear el libro en base a la solicitud
+  myURL = new URLs();
+  url_get: string = this.myURL.url_getSolicitudes
+  url_eliminar: string = this.myURL.url_deleteSolicitudes //URL para eliminar la solicitud
+  url_crear: string =  this.myURL.url_crear //URL para crear el libro en base a la solicitud
   public lista_solicitudes: get_solicitud[] = []
   error;
 

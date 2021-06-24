@@ -10,5 +10,11 @@ export class URLs{
     public url_crear: string = `http://${this.host}:47002/book/addBook`;
     public url_newBitacora: string = `http://${this.host}:47010/bitacora/newBitacora`;
     public url_getBitacora: string = `http://${this.host}:47011/bitacora/getBitacora`;
+    public url_solicitarLibro: string = `http://${this.host}:47009/SolicitarLibro`;
+    public url_Usuarios: string = `http://${this.host}:47001/Usuarios`;
+    public url_Eliminar_Usuario: string = `http://${this.host}:47001/Eliminar_Usuario`;
+    public url_Actualizar_Usuario: string = `http://${this.host}:47001/Actualizar_Usuario`;
+    public url_getSolicitudes: string = `http://${this.host}:47008/ObtenerSolicitudes`;
+    public url_deleteSolicitudes: string = `http://${this.host}:47007/EliminarSolicitud`;
 
 }
