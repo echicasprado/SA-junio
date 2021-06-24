@@ -62,7 +62,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 ansiblePlaybook('Ansible/playbook.yml') {
-		    inventoryPath('hosts.ini')	
+		    inventoryPath('inventory.ini')	
 		}
             }
         }
