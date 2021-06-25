@@ -157,8 +157,7 @@ export class LibrosComponent {
     this.http.post(this.url_crear, creado).subscribe((data:libro[])=> {//data es la respuesta
       res = data;
       console.log("Valor de res", res)
-      this.crearBitacora("Nuevo libro",`Autor: ${creado.author}\nTitulo: ${creado.title}\nCategoria: ${creado.category}\nPrecio${creado.price}\nUnidades: ${creado.units}`);
-      location.reload();
+      this.crearBitacora("Nuevo libro",`Titulo: ${creado.title}`);
       },error => this.error = error); 
 
     this.imagen = '';
@@ -192,8 +191,7 @@ export class LibrosComponent {
     
     this.http.post(this.url_editar, editado).subscribe((data:libro[])=> {//data es la respuesta
       res = data;
-      this.crearBitacora("Editar libro",`Autor: ${res.author}\nTitulo: ${res.title}\nCategoria: ${res.category}\nPrecio${res.price}\nUnidades: ${res.units}`);
-      location.reload();
+      this.crearBitacora("Editar libro",`Titulo: ${res.title}`);
       },error => this.error = error); 
   }
 
@@ -207,8 +205,7 @@ export class LibrosComponent {
     this.http.post(this.url_eliminar, libro).subscribe((data:[])=> {//data es la respuesta
       res = data;
       console.log("Valor de res", res);
-      this.crearBitacora("Eliminar libro",`Autor: ${libro.author}\nTitulo: ${libro.title}\nCategoria: ${libro.category}\nPrecio${libro.price}\nUnidades: ${libro.units}`);
-      location.reload();
+      this.crearBitacora("Eliminar libro",`Titulo: ${libro.title}`);
       },error => this.error = error);
   }
 
@@ -224,8 +221,10 @@ export class LibrosComponent {
 
     creado = this.myBitacora.value;
 
-    this.http.post(this.url_newBitacora, creado).subscribe((data:libro[])=> {//data es la respuesta
-      console.log("Valor de res", res)
+    this.http.post(this.url_newBitacora, creado).subscribe((data:[])=> {
+      res = data;
+      console.log("Valor de res", res);
+      location.reload();
       },error => this.error = error); 
   }
 
