@@ -74,7 +74,7 @@ export class VerSolicitudesComponent implements OnInit {
 
     this.http.post(this.url_crear, nuevo_libro).subscribe((data:libro[])=> {//data es la respuesta
       res = data;
-      this.crearBitacora("Aceptar solicitud de libro",`Autor: ${libro.author}\nTitulo: ${libro.title}\nCategoria: ${libro.category}\nPrecio${libro.price}\nUnidades: ${libro.units}`);
+      this.crearBitacora("Aceptar solicitud de libro",`Titulo: ${libro.nombre}`);
       this.eliminarSolicitud(libro);
 
     },error => this.error = error); 
