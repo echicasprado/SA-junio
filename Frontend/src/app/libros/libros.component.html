@@ -107,22 +107,22 @@
         <div class="modal-body">
             <form [formGroup]="myFormCrear">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Titulo" formControlName="title" />
+                    <input type="text" class="form-control" id="titleCreateBook" placeholder="Titulo" formControlName="title" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Autor" formControlName="author" />
+                    <input type="text" class="form-control" id="authorCreateBook" placeholder="Autor" formControlName="author" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Categoria" formControlName="category" />
+                    <input type="text" class="form-control" id="categoryCreateBook" placeholder="Categoria" formControlName="category" />
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Precio" formControlName="price" />
+                    <input type="number" class="form-control" id="priceCreateBook" placeholder="Precio" formControlName="price" />
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Unidades" formControlName="units" />
+                    <input type="number" class="form-control" id="unitsCreateBook" placeholder="Unidades" formControlName="units" />
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="message-text" placeholder="Descripción" formControlName="description">
+                    <textarea class="form-control" id="message-text" id="descriptionCreateBook" placeholder="Descripción" formControlName="description">
 
                     </textarea>
                 </div>
@@ -134,15 +134,11 @@
         </div>
         
         <div class="modal-footer">
-            <button type="button" [disabled]="myFormCrear.invalid" class="btn btn-success" (click)="crearLibro()" >
+            <button type="button" [disabled]="myFormCrear.invalid" id="buttonCreateBook" class="btn btn-success" (click)="crearLibro()" >
             Crear
             </button>
 
-            <button
-            type="button"
-            class="btn btn-danger"
-            (click)="modal.close();"
-            >
+            <button type="button" id="buttonCloseBook" class="btn btn-danger" (click)="modal.close();">
             Salir
             </button>
         </div>
