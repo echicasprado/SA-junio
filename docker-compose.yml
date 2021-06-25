@@ -17,6 +17,7 @@ services:
   #    - SA
   #  volumes:
   #    - "./DataBase/db:/var/lib/mysql"
+
   frontend:
     container_name: frontend
     image: frontend
@@ -24,8 +25,9 @@ services:
       context: ./Frontend
       dockerfile: Dockerfile
     restart: always
-    # environment:
-    #   REACT_APP_IP_2: "35.193.209.112"
+    env_file:
+       - 'variables.env'
+      
     networks: 
       - SA
     ports:
