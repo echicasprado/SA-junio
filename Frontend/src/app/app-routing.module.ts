@@ -14,6 +14,8 @@ import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.componen
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { SolicitarLibroComponent } from './solicitar-libro/solicitar-libro.component';
 import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.component';
+import { ImpuestosComponent } from './impuestos/impuestos.component';
+
 const routes: Routes = [
  
   { 
@@ -65,6 +67,10 @@ const routes: Routes = [
   {
     path: 'solicitudes', 
     component: VerSolicitudesComponent 
+  },
+  {
+    path: 'impuestos', 
+    component: ImpuestosComponent 
   },
 ];
 
