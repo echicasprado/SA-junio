@@ -44,7 +44,9 @@ import { ImpuestosComponent } from './impuestos/impuestos.component';
     PerfilClienteComponent,
     UsuariosComponent,
     SolicitarLibroComponent,
-    VerSolicitudesComponent
+    VerSolicitudesComponent,
+    LogEditorialComponent,
+    ImpuestosComponent
   ],
   imports: [
     BrowserModule,
