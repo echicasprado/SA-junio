@@ -69,6 +69,14 @@ const routes: Routes = [
     path: 'solicitudes', 
     component: VerSolicitudesComponent 
   },
+  {
+    path: 'log-editorial', 
+    component: LogEditorialComponent 
+  },
+  {
+    path: 'impuestos', 
+    component: ImpuestosComponent 
+  }
 ];
 
 @NgModule({
