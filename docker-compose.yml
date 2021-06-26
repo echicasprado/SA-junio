@@ -29,7 +29,7 @@ services:
     networks: 
       - SA
     ports:
-      - 47000:4200
+      - 47000:80
 
   frontend2:
     container_name: frontend2
@@ -43,7 +43,7 @@ services:
     networks: 
       - SA
     ports:
-      - 48000:4200
+      - 48000:80
 
   usuario:
     container_name: usuario

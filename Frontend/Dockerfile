@@ -1,22 +1,26 @@
-#este archivo se encuentra junto al contenido de nuestro proyecto 
+# #este archivo se encuentra junto al contenido de nuestro proyecto 
 
-#base image #imagen a utilizar ya que cuenta con nodejs interno
-FROM node:12-alpine  
+# #base image #imagen a utilizar ya que cuenta con nodejs interno
+# FROM node:12-alpine  
 
-#directorio de trabajo y variables del sistema utilizadas en Nodejs
-WORKDIR /usr/src/app6 
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
+# #directorio de trabajo y variables del sistema utilizadas en Nodejs
+# WORKDIR /usr/src/app6 
+# ARG NODE_ENV
+# ENV NODE_ENV $NODE_ENV
 
-# copia e intalacion de todos los modulos necesarios para nuestra app
-COPY package.json /usr/src/app6/
-RUN npm install && npm install @angular/cli
+# # copia e intalacion de todos los modulos necesarios para nuestra app
+# COPY package.json /usr/src/app6/
+# RUN npm install && npm install @angular/cli
 
-#copiamos nuestra App a nuestro directorio de trabajo
-COPY . /usr/src/app6
+# #copiamos nuestra App a nuestro directorio de trabajo
+# COPY . /usr/src/app6
 
-#Comando que se ejecutara al momento de Correr nuestra imagen de Docker
-CMD ["npm", "start" ]
+# #Comando que se ejecutara al momento de Correr nuestra imagen de Docker
+# CMD ["npm", "start" ]
 
-# Puerto en el cual se expondra nuestra imagen al ser ejecutada
-EXPOSE 4200
+# # Puerto en el cual se expondra nuestra imagen al ser ejecutada
+# EXPOSE 4200
+
+FROM nginx:1.17.1-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY ./dist/frontend-fase1 /usr/share/nginx/html
