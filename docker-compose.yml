@@ -31,6 +31,20 @@ services:
     ports:
       - 47000:4200
 
+  frontend2:
+    container_name: frontend2
+    image: frontend2
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    restart: always
+    # environment:
+    #   REACT_APP_IP_2: "35.193.209.112"
+    networks: 
+      - SA
+    ports:
+      - 48000:4200
+
   usuario:
     container_name: usuario
     image: usuario
@@ -163,6 +177,14 @@ services:
     ports:
       - 47011:3460
 
+  loadbalancer:
+    image: nginx
+    networks: 
+      - SA
+    ports: 
+      - 8080:80
+    volumes: 
+      - ./nginx/default.conf:/etc/nginx/nginx.conf  
 networks: 
     SA:
 
