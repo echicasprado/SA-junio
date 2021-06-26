@@ -182,8 +182,8 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - app1
-      - app2
+      - frontend
+      - frontend2
 networks: 
     SA:
 
