@@ -178,13 +178,12 @@ services:
       - 47011:3460
 
   loadbalancer:
-    image: nginx
-    networks: 
-      - SA
-    ports: 
-      - 8080:80
-    volumes: 
-      - ./nginx/default.conf:/etc/nginx/nginx.conf  
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - app1
+      - app2
 networks: 
     SA:
 
