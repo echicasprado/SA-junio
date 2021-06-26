@@ -1,0 +1,75 @@
+<html>
+<head>
+    <style type="text/css" ref="" ></style>
+</head>
+<body>
+    <div align="right" class="encabezado">
+      
+    </div>
+    <div class="card">
+
+        <div id="titulo">
+            <h2 id="testProductos">USUARIOS</h2>
+          </div>
+          <br /><br />
+       
+        <div  class="libros" >
+            <div class="row">
+                <div  *ngFor="let pro of listaUsuarios" class="col-xs-10 col-sm-6 col-md-4 product">
+                 <div class="tarjeta" >
+                     <h5>{{pro.nombre}}</h5>
+                     <h5>{{pro.apellido}}</h5>
+                     <h5>{{pro.correo}}</h5>
+                     <h5>Rol:{{pro.id_rol}}</h5>
+                     <button class="editar" (click)="editar(pro, contenidoEditar)">Editar</button>
+                     <button class="eliminar" (click)="eliminarUsuario(pro)">Eliminar</button>
+                     </div>
+                </div>
+            </div>
+     
+        </div>
+        
+    </div>
+
+    <ng-template #contenidoEditar let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Editar Usuario</h4>
+            <button class="close" aria-label="close" type="button" (click)="eliminarUsuarioStorage();modal.dismiss(); ">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+        <div class="modal-body">
+            <form [formGroup]="myFormEditar">
+                <div class="form-group">
+                    <input readonly type="text" class="form-control" placeholder="Correo" formControlName="correo"/>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Estado" formControlName="estado"/>
+                </div>
+            </form>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" [disabled]="myFormEditar.invalid" class="btn btn-success" (click)="editarUsuario()">
+            Editar
+            </button>
+
+            <button
+            type="button"
+            class="btn btn-danger"
+            (click)="eliminarUsuarioStorage();modal.close();"
+            >
+            Salir
+            </button>
+        </div>
+        <p *ngIf="showAlert">
+            <ngb-alert type="{{ tipoAlert }}" (closed)="staticAlertClosed = true">{{
+            messageError
+            }}</ngb-alert>
+        </p>
+    </ng-template>
+
+</body>
+</html>

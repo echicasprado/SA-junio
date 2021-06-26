@@ -1,0 +1,50 @@
+<div class="container">
+    <div id="cuadro" class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3>Solicitar Libro</h3>
+            </div>
+
+            <div class="card-body">
+                <form #registerForm="ngForm" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-book"></i></span>
+                        </div>
+                        <input id="libro" class="form-control" placeholder="Nombre de Libro" 
+                            formControlName="nombre" autofocus required/>
+                    </div>
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user-edit"></i></span>
+                        </div>
+                        <input id="libro" class="form-control" placeholder="Autor" 
+                            formControlName="autor" autofocus required/>
+                    </div>
+
+                    <div class="input-group form-group" >
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-calendar-check"></i></span>
+                        </div>
+                        <input id="libro" class="form-control" placeholder="Fecha Primera Publicacion" 
+                            formControlName="primera_publicacion" autofocus required
+                            pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$" />
+                    </div>
+                    <div *ngIf="primera_publicacion.errors?.pattern">
+                        <h12 class="text-warning">El formato de la fecha es 'dd/mm/yyyy'</h12>
+                    </div> 
+
+                    <div class="form-group">
+                        <input class="text-warning" id="inputUpload" type="file" (change)="handleUpload($event)"/>
+                    </div>
+
+                    <div class="form-group">
+                        <input id="testButton" type="submit" value="Solicitar" class="btn float-right login_btn" 
+                        [disabled]="!registerForm.valid"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

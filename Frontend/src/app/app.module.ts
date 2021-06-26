@@ -23,6 +23,11 @@ import { DenegadoComponent } from './denegado/denegado.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { LibrosComponent } from './libros/libros.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { SolicitarLibroComponent } from './solicitar-libro/solicitar-libro.component';
+import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.component';
+import { LogEditorialComponent } from './log-editorial/log-editorial.component';
+import { ImpuestosComponent } from './impuestos/impuestos.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.componen
     DenegadoComponent,
     CarritoComponent,
     LibrosComponent,
-    PerfilClienteComponent
+    PerfilClienteComponent,
+    UsuariosComponent,
+    SolicitarLibroComponent,
+    VerSolicitudesComponent,
+    LogEditorialComponent,
+    ImpuestosComponent
   ],
   imports: [
     BrowserModule,

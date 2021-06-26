@@ -18,6 +18,42 @@ pipeline {
                         sh 'npm test'
                	    }
 		}
+		dir("AddBookServer") {
+		    nodejs('NodeJS'){
+                        sh 'npm --version'
+                        sh 'npm install'
+                        sh 'npm test'
+               	    }
+		}
+		dir("DeleteBookServer") {
+		    nodejs('NodeJS'){
+                        sh 'npm --version'
+                        sh 'npm install'
+                        sh 'npm test'
+               	    }
+		}
+		dir("GetBookServer") {
+		    nodejs('NodeJS'){
+                        sh 'npm --version'
+                        sh 'npm install'
+                        sh 'npm test'
+               	    }
+		}
+		dir("Usuario") {
+		    nodejs('NodeJS'){
+                        sh 'npm --version'
+                        sh 'npm install'
+                        sh 'npm test'
+               	    }
+		}
+		dir("UpdateBookServer") {
+		    nodejs('NodeJS'){
+                        sh 'npm --version'
+                        sh 'npm install'
+                        sh 'npm test'
+               	    }
+		}
+		
 		
            
             }
@@ -25,14 +61,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                 
-                    ansiblePlaybook([
-                            inventory   : 'hosts',
-                            playbook    : 'playbook.yml',
-                            installation: 'ansible',
-                            colorized   : true
-                    ])
-                
+                ansiblePlaybook('Ansible/playbook.yml') {
+		    inventoryPath('inventory.ini')	
+		}
             }
         }
     }

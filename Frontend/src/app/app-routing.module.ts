@@ -11,6 +11,12 @@ import { AdministradorGuard } from "./guards/administrador.guard";
 import { CarritoComponent } from './carrito/carrito.component';
 import { LibrosComponent } from './libros/libros.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { SolicitarLibroComponent } from './solicitar-libro/solicitar-libro.component';
+import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.component';
+import { LogEditorialComponent } from './log-editorial/log-editorial.component';
+import { ImpuestosComponent } from './impuestos/impuestos.component';
+
 const routes: Routes = [
  
   { 
@@ -42,7 +48,35 @@ const routes: Routes = [
   {
   path: 'carrito', 
   component: CarritoComponent 
-},
+  },
+  {
+  path: 'libros', 
+  component: LibrosComponent
+  },
+  {
+  path: 'perfil-cliente', 
+  component: PerfilClienteComponent 
+  },
+  {
+    path: 'usuarios', 
+    component: UsuariosComponent 
+  },
+  {
+    path: 'solicitar', 
+    component: SolicitarLibroComponent 
+  },
+  {
+    path: 'solicitudes', 
+    component: VerSolicitudesComponent 
+  },
+  {
+    path: 'log-editorial', 
+    component: LogEditorialComponent 
+  },
+  {
+    path: 'impuestos', 
+    component: ImpuestosComponent 
+  }
 ];
 
 @NgModule({

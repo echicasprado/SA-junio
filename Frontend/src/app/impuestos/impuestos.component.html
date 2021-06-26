@@ -1,0 +1,96 @@
+<div class="container">
+    <div id="cuadro" class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-body">
+          <ul ngbNav #nav="ngbNav" class="nav nav-pills nav-justified">
+            <ng-container *ngIf="tipouser == 2;">
+            <li [ngbNavItem]="1" id="itemTabI">
+              <a ngbNavLink id="itemTab">Calculadora de Impuestos</a>
+              <ng-template ngbNavContent >
+                
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                Precio del libro:
+                  <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="far fa-money-bill-alt"></i>
+                          </span>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Precio"
+                        formControlName="precio"
+                        autofocus
+                      />
+                    </div>
+                    País de importe:
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fas fa-globe-americas"></i>
+                        </span>
+                      </div>
+                      <select
+
+                        class="form-control"
+                        formControlName="pais"
+                        autofocus>
+                       
+                        <optgroup>
+                            <option>Alemania</option>
+                            <option>Argentina</option>                            
+                            <option>Bolivia</option>
+                            <option>Canadá</option>
+                            <option>China</option>
+                            <option>Corea del Sur</option>
+                            <option>Croacia</option>
+                            <option>Dinamarca</option>
+                            <option>El Salvador</option>
+                            <option>Estados Unidos</option>
+                            <option>España</option>
+                            <option>Francia</option> 
+                            <option>Guatemala</option>
+                            <option>Hungría</option>
+                            <option>India</option>
+                            <option>Japón</option>
+                            <option>Marruecos</option> 
+                            <option>México</option> 
+                            <option>Noruega</option>
+                            <option>Rusia</option>
+                            <option>Suecia</option>                                   
+                        </optgroup>
+                        </select>
+                    </div>
+                    Impuesto:
+                    <div class="input-group form-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"
+                          ><i class="fas fa-calculator"></i>
+                        </span>
+                      </div> 
+                      <input [readonly] = "true"
+                        type="text"
+                        class="form-control"
+                        placeholder="Total"
+                        formControlName="total"
+                        [ngModel]="this.onSubmit()"
+                        autofocus
+                      /> 
+                    </div>
+        
+               
+              </form>
+              
+              </ng-template>
+            </li>
+          </ng-container>
+
+          </ul>
+          <div [ngbNavOutlet]="nav" class="mt-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

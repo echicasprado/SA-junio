@@ -5,29 +5,63 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02" [ngClass]="{ 'collapse': isCollapse }">
-      <ng-container *ngIf="usuarioService.claseUser() == 3; else admin">
+      <ng-container >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active"
-              >Inicio</a
-            >
-          </li>
+          <div class=""*ngIf="this.tipouser == 0">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/" routerLinkActive="active"
+                >Inicio</a
+              >
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 1">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/usuarios" routerLinkActive="active"
+                >Usuarios</a
+              >
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 1">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/log-editorial" routerLinkActive="active"
+                >Log Editoriales</a
+              >
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 2">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/libros" routerLinkActive="active"
+                >Libros</a>
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 2">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/solicitudes" routerLinkActive="active"
+                >Solicitudes</a>
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 3">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/solicitar" routerLinkActive="active"
+                >Solicitar Libro</a>
+            </li>
+          </div>
+          
+
+          <div class=""*ngIf="this.tipouser == 2">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/impuestos" routerLinkActive="active"
+                >Impuestos</a>
+            </li>
+          </div>
+
         </ul>
       </ng-container>
-      <ng-template #admin>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/admin" routerLinkActive="active"
-              >Productos</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/pedidos" routerLinkActive="active"
-              >Pedidos</a
-            >
-          </li>
-        </ul>
-      </ng-template>
 
       <ul class="navbar-nav ml-auto">
         <ng-container *ngIf="!usuarioService.estaLog(); else log">
