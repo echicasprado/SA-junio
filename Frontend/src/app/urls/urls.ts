@@ -15,7 +15,6 @@ export class URLs{
     public url_getSolicitudes: string = `http://${this.host}:47008/ObtenerSolicitudes`;
     public url_solicitarLibro: string = `http://${this.host}:47009/SolicitarLibro`;
     public url_newBitacora: string = `http://${this.host}:47010/bitacora/newBitacora`;
-    // public url_newBitacora: string = `http://localhost:3450/bitacora/newBitacora`;
     public url_getBitacora: string = `http://${this.host}:47011/bitacora/getBitacora`;
 
 }
