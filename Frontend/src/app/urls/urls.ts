@@ -17,5 +17,5 @@ export class URLs{
     public url_newBitacora: string = `http://${this.host}:47010/bitacora/newBitacora`;
     // public url_newBitacora: string = `http://localhost:3450/bitacora/newBitacora`;
     public url_getBitacora: string = `http://${this.host}:47011/bitacora/getBitacora`;
-
+    public url_compra: string = `http://${this.host}:47006/api/compra`;
 }
