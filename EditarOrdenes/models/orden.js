@@ -7,7 +7,7 @@ exports = module.exports = function(app, mongoose){
         productos:          { type: Object },
         usuario:            { type: String },
         total:              { type: String },
-        estado:             { type: String }
+        estado:             { type: Object }
       });
       
       module.exports = mongoose.model('compra', ordenCliente);
