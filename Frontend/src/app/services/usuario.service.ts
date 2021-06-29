@@ -40,7 +40,7 @@ console.log(usuario)
     const desencriptar = this.decryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
     const encriptada = this.encryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
     usuario.password = encriptada;
-    return this.http.put('http://34.134.68.224:47001/Actualizar_Usuario', usuario);
+    return this.http.put(`${this.API_URI}/Actualizar_Usuario`, usuario);
   }
 
   estaLog():Boolean{

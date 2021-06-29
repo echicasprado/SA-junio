@@ -10,7 +10,7 @@
           <div class=""*ngIf="this.tipouser == 0">
             <li class="nav-item" >
               <a class="nav-link" routerLink="/" routerLinkActive="active"
-                >Inicio</a
+                >Catálogo</a
               >
             </li>
           </div>
@@ -64,6 +64,14 @@
       </ng-container>
 
       <ul class="navbar-nav ml-auto">
+
+        <div class=""*ngIf="this.tipouser == 3">
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="/carrito" routerLinkActive="active">
+              <i class="fas fa-shopping-cart"></i> &nbsp;&nbsp;&nbsp;|</a>
+          </li> 
+        </div>
+
         <ng-container *ngIf="!usuarioService.estaLog(); else log">
           <li class="nav-item">
             <a class="nav-link" routerLink="/login" routerLinkActive="active"
