@@ -5,6 +5,7 @@ var Orden  = mongoose.model('compra');
 exports.editarOrden = function(req, res) {
 	Orden.findOne({_id: req.body._id}, function(err, user) {
 		
+		user._id 		= 	req.body._id
 		user.estado		=   req.body.estado
 
 		user.save(function(err) {

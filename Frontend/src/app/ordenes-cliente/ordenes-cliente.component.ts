@@ -12,7 +12,7 @@ import { Orden1 } from '../models/orden';
 export class OrdenesClienteComponent implements OnInit {
 
   myURL = new URLs();
-  url: string = this.myURL.url;
+  url: string = this.myURL.url_ordenes;
   public listaordenes: Orden1[] = []
   public lista_misordenes: Orden1[] = []
 
@@ -22,7 +22,7 @@ export class OrdenesClienteComponent implements OnInit {
     var u = localStorage.getItem('usuario');
     var usuario = JSON.parse(u);
 
-    this.http.get('http://localhost:3000/Ordenes').subscribe((data:Orden1[])=> {//data es la respuesta
+    this.http.get(url).subscribe((data:Orden1[])=> {//data es la respuesta
       this.listaordenes = data;
       this.lista_misordenes = this.listaordenes.filter(orden => orden.usuario == usuario.correo)
       console.log("Lista de ordenes", this.lista_misordenes);
