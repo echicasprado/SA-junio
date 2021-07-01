@@ -201,11 +201,11 @@ services:
     ports:
       - 47013:3000
 
-  ordenescliente:
-    container_name: ordenescliente
-    image: ordenescliente
+  editarorden:
+    container_name: editarorden
+    image: editarorden
     build:
-      context: ./OrdenesCliente
+      context: ./EditarOrden
       dockerfile: Dockerfile
     restart: always
     networks: 
