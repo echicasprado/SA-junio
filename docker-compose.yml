@@ -189,6 +189,30 @@ services:
     ports:
       - 47012:2345
 
+  ordenes:
+    container_name: ordenes
+    image: ordenes
+    build:
+      context: ./Ordenes
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47013:3000
+
+  ordenescliente:
+    container_name: ordenescliente
+    image: ordenescliente
+    build:
+      context: ./OrdenesCliente
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47014:3000
+
 #   loadbalancer:
 #     build: ./nginx
 #     ports:
