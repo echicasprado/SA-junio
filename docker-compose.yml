@@ -31,19 +31,19 @@ services:
     ports:
       - 47000:80
 
-  frontend2:
-    container_name: frontend2
-    image: frontend2
-    build:
-      context: ./Frontend
-      dockerfile: Dockerfile
-    restart: always
-    # environment:
-    #   REACT_APP_IP_2: "35.193.209.112"
-    networks: 
-      - SA
-    ports:
-      - 48000:80
+#   frontend2:
+#     container_name: frontend2
+#     image: frontend2
+#     build:
+#       context: ./Frontend
+#       dockerfile: Dockerfile
+#     restart: always
+#     # environment:
+#     #   REACT_APP_IP_2: "35.193.209.112"
+#     networks: 
+#       - SA
+#     ports:
+#       - 48000:80
 
   usuario:
     container_name: usuario
@@ -189,13 +189,13 @@ services:
     ports:
       - 47012:2345
 
-  loadbalancer:
-    build: ./nginx
-    ports:
-      - "8080:80"
-    depends_on:
-      - frontend
-      - frontend2
+#   loadbalancer:
+#     build: ./nginx
+#     ports:
+#       - "8080:80"
+#     depends_on:
+#       - frontend
+#       - frontend2
 networks: 
     SA:
 
