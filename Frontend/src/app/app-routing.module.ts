@@ -16,6 +16,8 @@ import { SolicitarLibroComponent } from './solicitar-libro/solicitar-libro.compo
 import { VerSolicitudesComponent } from './ver-solicitudes/ver-solicitudes.component';
 import { LogEditorialComponent } from './log-editorial/log-editorial.component';
 import { ImpuestosComponent } from './impuestos/impuestos.component';
+import { OrdenesComponent } from './ordenes/ordenes.component';
+import { OrdenesClienteComponent } from './ordenes-cliente/ordenes-cliente.component';
 
 const routes: Routes = [
  
@@ -76,6 +78,14 @@ const routes: Routes = [
   {
     path: 'impuestos', 
     component: ImpuestosComponent 
+  },
+  {
+    path: 'ordenes', 
+    component: OrdenesComponent 
+  },
+  {
+    path: 'mis-ordenes', 
+    component: OrdenesClienteComponent 
   }
 ];
 
