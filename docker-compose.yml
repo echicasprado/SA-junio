@@ -177,6 +177,18 @@ services:
     ports:
       - 47011:3460
 
+  esb:
+    container_name: esb
+    image: esb
+    build:
+      context: ./EnterpriseServiceBus
+      dockerfile: Dockerfile
+    restart: always
+    networks: 
+      - SA
+    ports:
+      - 47012:2345
+
   loadbalancer:
     build: ./nginx
     ports:
