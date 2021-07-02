@@ -22,7 +22,7 @@ export class OrdenesClienteComponent implements OnInit {
     var u = localStorage.getItem('usuario');
     var usuario = JSON.parse(u);
 
-    this.http.get(url).subscribe((data:Orden1[])=> {//data es la respuesta
+    this.http.get(this.url).subscribe((data:Orden1[])=> {//data es la respuesta
       this.listaordenes = data;
       this.lista_misordenes = this.listaordenes.filter(orden => orden.usuario == usuario.correo)
       console.log("Lista de ordenes", this.lista_misordenes);
