@@ -1,24 +1,49 @@
 const axios = require('axios').default;
+const loginG12 = require('./Login/loginG12').loginG12 
+const loginG11 = require('./Login/loginG11').loginG11 
+const loginG10 = require('./Login/loginG10').loginG10 
 
-let ulrs = { 9:`0.0.0.0`, 10:`0.0.0.0`, 11:`34.69.133.221`, 12:`0.0.0.0`} 
+var grupo = 11
 
 var defaultLogin = async (req, res) => {
-    console.log(req.body)
-   
-    axios.post(`http://${ulrs[11]}:47001/Login`, req.body)
-    .then(function (response) {
-        res.send(JSON.stringify(response.data));
-    }).catch(function (error) {
-        res.send(error.message);
-    });
-
+   switch(grupo){
+    case 12: loginG12(req, res)
+    break
+    case 10: loginG10(req, res)
+    break
+    default: loginG11(req, res)
+    break
+   }    
 }
+
+var defaultCatalogo = async (req, res) => {
+   switch(grupo){
+    case 12: loginG12(req, res)
+    break
+    case 10: loginG10(req, res)
+    break
+    default: loginG11(req, res)
+    break
+   }    
+}
+
+var defaultCrearProducto = async (req, res) => {
+   switch(grupo){
+    case 12: loginG12(req, res)
+    break
+    case 10: loginG10(req, res)
+    break
+    default: loginG11(req, res)
+    break
+   }    
+}
+
 
 var switchBus = (req, res) => {
-    
+    grupo = req.body.grupo
 }
 
 
 
-module.exports = { switchBus, defaultLogin }
+module.exports = { switchBus, defaultLogin, defaultCatalogo, defaultCrearProducto }
 
