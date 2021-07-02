@@ -205,7 +205,7 @@ services:
     container_name: editarorden
     image: editarorden
     build:
-      context: ./EditarOrden
+      context: ./EditarOrdenes
       dockerfile: Dockerfile
     restart: always
     networks: 
