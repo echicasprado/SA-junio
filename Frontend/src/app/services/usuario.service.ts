@@ -23,6 +23,7 @@ export class UsuarioService {
     // console.log(encriptada)
     // console.log(this.decryptUsingAES256(this.tokenFromUI, encriptada))
     return this.http.post(`34.69.133.221:47012/Login`, {  "user": correo, "password": contrasena});
+
   }
 
   // getUser(correo: string){

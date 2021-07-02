@@ -39,4 +39,4 @@ mongoose.connect('mongodb://softwareA:EstoSeVaADescontrolar!@34.134.68.224:27017
 //API 
 
 app.route('/EditarOrden')
-  .get(Ordenes.editarOrden);
+  .post(Ordenes.editarOrden);
