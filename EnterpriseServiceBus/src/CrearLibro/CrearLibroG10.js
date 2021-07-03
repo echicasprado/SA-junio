@@ -1,10 +1,11 @@
 const axios = require('axios').default;
 nombreimg: String;
-let contador = 0;
+let contador = 5;
 
 var CrearLibroG10 = async (req, res) => {
+
     console.log('grupo 10');
-    contador = contador+1;
+    contador = contador + 1;
     nombreimg= "Img"+contador;
     
    
@@ -17,7 +18,7 @@ var CrearLibroG10 = async (req, res) => {
         imageName: nombreimg,
         extension: "jpg",
         base64: req.body.coverPage,
-        Precio: req.body.price    
+        Precio: req.body.price.toString()   
     }
    
     
