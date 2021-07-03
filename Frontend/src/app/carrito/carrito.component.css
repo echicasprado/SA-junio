@@ -1,15 +1,17 @@
 html, body{
-    background: rgb(200, 225, 245);
+    
+  background-image: url("../../assets/crud.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  max-width: 100vw;
+  font-family: "Numans", sans-serif;
+  color:white;   
   
-   font-family: "Numans", sans-serif;
-   color:white;
- 
  }
  
  .card {    /* este es para la pantallita negra sobrepuesta*/
-  
-     margin-top: auto;
-     margin-left: 100px;
+     margin-left: 50px;
      margin-bottom: auto;
      width: 1250px;
      background-color: rgba(0, 0, 0, 0.5) !important;
