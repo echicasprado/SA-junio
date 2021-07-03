@@ -10,7 +10,7 @@ const RegistroG11 = require('./Registro/RegistroG11').RegistroG11
 const RegistroG10 = require('./Registro/RegistroG10').RegistroG10 
 
 const catalogoG10 = require('./Catalogo/catalogoG10').catalogoG10
-
+const catalogoG11 = require('./Catalogo/catalogoG11').catalogoG11
 const catalogoG12 = require('./Catalogo/catalogoG12').catalogoG12
 
 var grupo = 12
@@ -64,6 +64,7 @@ var defaultCrearProducto = async (req, res) => {
 
 var switchBus = (req, res) => {
     grupo = req.body.grupo
+    res.send(grupo)
 }
 
 
