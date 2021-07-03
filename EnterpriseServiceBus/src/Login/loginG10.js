@@ -9,27 +9,25 @@ var loginG10 = async (req, res) => {
     axios.post(`http://3.15.230.185:3000/login/login`, newData)
     .then(function (response) {
         console.log(response.data)
-        res.send(JSON.stringify(response.data));
+        res.send(JSON.stringify(convertData(response.data)));
     }).catch(function (error) {
         res.send(error.message);
     });
 
 }
 
-var CryptoJS = require('crypto-js');
-var tokenFromUI = "SA-Encryption";
 
-function decryptUsingAES256(tokenFromUI, encrypted) {
-    let _key = CryptoJS.enc.Utf8.parse(tokenFromUI);
-    let _iv = CryptoJS.enc.Utf8.parse(tokenFromUI);
-
-    return CryptoJS.AES.decrypt(
-    encrypted, _key, {
-        keySize: 16,
-        iv: _iv,
-        mode: CryptoJS.mode.ECB,
-        padding: CryptoJS.pad.Pkcs7
-    }).toString(CryptoJS.enc.Utf8);
+var convertData = (data) => {
+    return {
+        _id: data._id,
+        nombre: data.nombres,
+        apellido: data.apellidos,
+        correo: data.email,
+        password: data.password,
+        telefono: data.celular,
+        id_rol: data.tipo === "Cliente"? 3 : data.tipo === "Editorial"? 2 : 1,
+        estado: 1 
+    }
 }
 
 module.exports = { loginG10 }

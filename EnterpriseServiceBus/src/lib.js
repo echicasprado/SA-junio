@@ -5,7 +5,7 @@ const loginG10 = require('./Login/loginG10').loginG10
 
 const catalogoG10 = require('./Catalogo/catalogoG10').catalogoG10
 
-var grupo = 10
+var grupo = 12
 
 var defaultLogin = async (req, res) => {
    switch(grupo){

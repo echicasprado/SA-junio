@@ -12,8 +12,6 @@ var catalogoG10 = async (req, res) => {
     });
 
 
-    
-        
 /*"_id":"60ce2eb1bf1d23001a5db515",
     "titulo":"Quiero Comunicación y Lenguaje A",
     "editorial":"Editorial Santillana",
@@ -32,6 +30,8 @@ var catalogoG10 = async (req, res) => {
 
 
 var convertData = (data) => {
+
+
 
     return {
         _id:            data._id,
