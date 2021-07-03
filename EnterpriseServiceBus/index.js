@@ -4,7 +4,7 @@ const port = 2345
 const cors = require('cors')
 var bodyParser = require('body-parser')
 
-const { switchBus, defaultLogin, defaultCatalogo,  defaultCrearProducto } = require('./src/lib')
+const { switchBus, defaultLogin, defaultRegistro, defaultCatalogo,  defaultCrearProducto } = require('./src/lib')
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 
 app.post('/switch',  switchBus)
 app.post('/Login',   defaultLogin)
+app.post('/Registro',   defaultRegistro)
 // app.post('/Compras',   defaultCompras)
 app.post('/Catalogo',   defaultCatalogo)
 app.post('/CrearProducto',   defaultCrearProducto)
