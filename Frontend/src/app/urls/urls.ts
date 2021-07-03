@@ -3,7 +3,7 @@
 export class URLs{
     private host:string = "34.69.133.221";
 
-    public API_URI: string = `http://${this.host}:47001`;
+    public API_URI: string = `http://${this.host}:47012`;
     public url_Usuarios: string = `http://${this.host}:47001/Usuarios`;
     public url_Actualizar_Usuario: string = `http://${this.host}:47001/Actualizar_Usuario`;
     public url_Eliminar_Usuario: string = `http://${this.host}:47001/Eliminar_Usuario`;
