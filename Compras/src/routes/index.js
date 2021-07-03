@@ -25,7 +25,7 @@ router.post('/compra', (req, res) =>{
 
     var mail_option = {
       from: 'BookSA <sagrupo11@gmail.com>',
-      to: 'glendyco@gmail.com',
+      to: producto.usuario,
       subject: 'Factura de libros',
       html: '<h1>BookSA</h1> \n <h3>Libros comprados: </h3>\n' + productos + '\n<h3>Total: Q. '+ producto.total+ '</h3>'
     }
