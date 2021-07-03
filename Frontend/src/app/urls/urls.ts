@@ -7,7 +7,7 @@ export class URLs{
     public url_Usuarios: string = `http://${this.host}:47001/Usuarios`;
     public url_Actualizar_Usuario: string = `http://${this.host}:47001/Actualizar_Usuario`;
     public url_Eliminar_Usuario: string = `http://${this.host}:47001/Eliminar_Usuario`;
-    public url_crear: string = `http://${this.host}:47002/book/addBook`;
+    public url_crear: string = `http://${this.host}:47012/CrearProducto`;
     public url_eliminar: string = `http://${this.host}:47003/book/deleteBook`;
     public url_editar: string = `http://${this.host}:47004/book/updateBook`;
     public url: string = `http://${this.host}:47012/Catalogo`;
