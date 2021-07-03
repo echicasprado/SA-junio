@@ -1,0 +1,71 @@
+<html>
+<head>
+    <style type="text/css" ref="" ></style>
+</head>
+<body>
+    <div align="right" class="encabezado">
+      
+    </div>
+    <div class="card">
+
+        <div id="titulo">
+            <h2 id="testProductos">TUS ORDENES</h2>
+        </div>
+       
+        <div  class="libros" >
+            <div class="row">
+                <div  *ngFor="let pro of lista_misordenes" class="col-xs-10 col-sm-6 col-md-4 product">
+                    <div class="aceptada" *ngIf="pro.estado == 1">
+                        <h5>Decripcion: </h5>
+                        <div *ngFor="let n of pro.productos" class="libro">
+                            <h6>{{n.nombre}}</h6>
+                            <h6>Q.{{n.precio}}</h6>
+                        </div>
+                        <h5>Total: Q.{{pro.total}}</h5>
+                        <h5>Estado: Aceptada</h5>
+                    </div>
+                    <div class="importada" *ngIf="pro.estado == 2">
+                        <h5>Decripcion: </h5>
+                        <div *ngFor="let n of pro.productos" class="libro">
+                            <h6>{{n.nombre}}</h6>
+                            <h6>Q.{{n.precio}}</h6>
+                        </div>
+                        <h5>Total: Q.{{pro.total}}</h5>
+                        <h5>Estado: Importada</h5>
+                    </div>
+                    <div class="empacada" *ngIf="pro.estado == 3">
+                        <h5>Decripcion: </h5>
+                        <div *ngFor="let n of pro.productos" class="libro">
+                            <h6>{{n.nombre}}</h6>
+                            <h6>Q.{{n.precio}}</h6>
+                        </div>
+                        <h5>Total: Q.{{pro.total}}</h5>
+                        <h5>Estado: Empaquetada</h5>
+                    </div>
+                    <div class="camino" *ngIf="pro.estado == 4">
+                        <h5>Decripcion: </h5>
+                        <div *ngFor="let n of pro.productos" class="libro">
+                            <h6>{{n.nombre}}</h6>
+                            <h6>Q.{{n.precio}}</h6>
+                        </div>
+                        <h5>Total: Q.{{pro.total}}</h5>
+                        <h5>Estado: En Camino</h5>
+                    </div>
+                    <div class="entregada" *ngIf="pro.estado == 5">
+                        <h5>Decripcion: </h5>
+                        <div *ngFor="let n of pro.productos" class="libro">
+                            <h6>{{n.nombre}}</h6>
+                            <h6>Q.{{n.precio}}</h6>
+                        </div>
+                        <h5>Total: Q.{{pro.total}}</h5>
+                        <h5>Estado: Entregada</h5>
+                     </div>
+                </div>
+            </div>
+     
+        </div>
+        
+    </div>
+</body>
+</html>
+

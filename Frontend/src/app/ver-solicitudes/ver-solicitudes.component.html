@@ -17,7 +17,8 @@
             <div class="row">
                 <div  *ngFor="let pro of lista_solicitudes" class="col-xs-10 col-sm-6 col-md-4 product">
                  <div class="tarjeta" >
-                    <img src="data:image/png;base64,{{pro.pdf}}" alt=" " />
+                    <img src="data:image/png;base64,{{pro.pdf}}" alt=" " onerror='this.style.display = "none"' />
+                     <img src="{{pro.pdf}}" alt=" "  onerror='this.style.display = "none"'/>
                      <h5>Nombre: {{pro.nombre}}</h5>
                      <h5>Autor: {{pro.autor}}</h5>
                      <h5>Publicacion: {{pro.primera_publicacion}}</h5>

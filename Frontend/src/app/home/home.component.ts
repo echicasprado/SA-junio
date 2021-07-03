@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
-
+import { URLs } from '../urls/urls';
 
 
 
@@ -17,7 +17,8 @@ export class HomeComponent {
   
   public listaproductos = [] //esta ya no entra los que tiene stock en 0
   public listaproductos2 = [] //esta recibe todos
-  url: string = 'http://34.134.68.224:47005/book/getBooks'; //obtener catalogo 
+  myURL = new URLs();
+  url: string = this.myURL.url;
   error;
   datos:any[]
 

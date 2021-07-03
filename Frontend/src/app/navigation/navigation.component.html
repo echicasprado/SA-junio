@@ -31,6 +31,14 @@
             </li>
           </div>
 
+          <div class=""*ngIf="this.tipouser == 1">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/ordenes" routerLinkActive="active"
+                >Ordenes</a
+              >
+            </li>
+          </div>
+
           <div class=""*ngIf="this.tipouser == 2">
             <li class="nav-item" >
               <a class="nav-link" routerLink="/libros" routerLinkActive="active"
@@ -45,20 +53,28 @@
             </li>
           </div>
 
-          <div class=""*ngIf="this.tipouser == 3">
-            <li class="nav-item" >
-              <a class="nav-link" routerLink="/solicitar" routerLinkActive="active"
-                >Solicitar Libro</a>
-            </li>
-          </div>
-          
-
           <div class=""*ngIf="this.tipouser == 2">
             <li class="nav-item" >
               <a class="nav-link" routerLink="/impuestos" routerLinkActive="active"
                 >Impuestos</a>
             </li>
           </div>
+
+          <div class=""*ngIf="this.tipouser == 3">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/solicitar" routerLinkActive="active"
+                >Solicitar Libro</a>
+            </li>
+          </div>
+
+          <div class=""*ngIf="this.tipouser == 3">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/mis-ordenes" routerLinkActive="active"
+                >Mis Ordenes</a>
+            </li>
+          </div>
+          
+
 
         </ul>
       </ng-container>

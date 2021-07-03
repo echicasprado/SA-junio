@@ -60,6 +60,7 @@ ngOnInit(): void {
       res = data;
       console.log("Valor de res", res);
       location.reload();
+      localStorage.removeItem('productoscarrito')
       alert('¡Compra realizada exitosamente!');
       },error => this.error = error); 
   }

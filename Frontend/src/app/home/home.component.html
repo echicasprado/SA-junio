@@ -17,7 +17,8 @@
                 <div  *ngFor="let pro of listaproductos" class="col-xs-10 col-sm-6 col-md-4 product">
                  
                  <div align="left" class="tarjeta" >
-                     <img src="data:image/png;base64,{{pro.coverPage}}" alt=" " />
+                     <img src="data:image/png;base64,{{pro.coverPage}}" alt=" " onerror='this.style.display = "none"' />
+                     <img src="{{pro.coverPage}}" alt=" "  onerror='this.style.display = "none"'/>
                      <h4  align="left">{{pro.title}}</h4>
                      <h5  align="left">Precio:  Q.{{pro.price}}</h5>
                      <h5  align="left">Descripcion: {{pro.description}}</h5>
