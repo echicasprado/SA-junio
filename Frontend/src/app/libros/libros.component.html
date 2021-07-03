@@ -24,7 +24,8 @@
             <div class="row">
                 <div  *ngFor="let pro of lista_editorial" class="col-xs-10 col-sm-6 col-md-4 product">
                  <div class="tarjeta" >
-                    <img src="data:image/png;base64,{{pro.coverPage}}" alt=" " />
+                    <img src="data:image/png;base64,{{pro.coverPage}}" alt=" " onerror='this.style.display = "none"' />
+                     <img src="{{pro.coverPage}}" alt=" "  onerror='this.style.display = "none"'/>
                      <h5>{{pro.title}}</h5>
                      <h5>Q.{{pro.price}}</h5>
                      <h5>Unidades:{{pro.units}}</h5>
