@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.post('/switch',  switchBus)
 app.post('/Login',   defaultLogin)
 // app.post('/Compras',   defaultCompras)
-app.post('/Catalogo',   defaultCatalogo)
+app.get('/Catalogo',   defaultCatalogo)
 app.post('/CrearProducto',   defaultCrearProducto)
 
 app.listen(port, () => {
