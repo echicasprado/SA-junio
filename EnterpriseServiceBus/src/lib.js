@@ -11,6 +11,8 @@ const RegistroG10 = require('./Registro/RegistroG10').RegistroG10
 
 const catalogoG10 = require('./Catalogo/catalogoG10').catalogoG10
 
+const catalogoG12 = require('./Catalogo/catalogoG12').catalogoG12
+
 var grupo = 12
 
 var defaultLogin = async (req, res) => {
@@ -38,11 +40,11 @@ var defaultRegistro = async (req, res) => {
 var defaultCatalogo = async (req, res) => {
 
    switch(grupo){
-    case 12: loginG12(req, res)
+    case 12: catalogoG12(req, res)
     break
     case 10: catalogoG10(req, res)
     break
-    default: loginG11(req, res)
+    default: catalogoG11(req, res)
     break
    }  
 

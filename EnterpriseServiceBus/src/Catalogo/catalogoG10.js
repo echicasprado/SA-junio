@@ -30,17 +30,20 @@ var catalogoG10 = async (req, res) => {
 
 
 var convertData = (data) => {
+    return data.map((x)=>{
+        
+     return {
+            _id:            x._id,
+            title:          x.titulo,
+            units:          x.stock,
+            coverPage:      x.link,//convertir a b64
+            description:    x.descripcion,
+            price:          x.precio,
+            author:         ""
+        }
+    })
+    /**/
 
-
-
-    return {
-        _id:            data._id,
-        title:          data.titulo,
-        units:          data.stock,
-        coverPage:      data.link,
-        description:    data.descripcion,
-        price:          data.precio
-    }
 
 }
 
