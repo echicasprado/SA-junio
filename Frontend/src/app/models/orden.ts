@@ -6,11 +6,3 @@ export interface Orden{
     fecha:          string,
     estado:         string,
 }
-
-export interface Orden1{
-    _id:            number,
-    producto:       Object,
-    usuario:        string,
-    total:          number,
-    estado:         number
-}

@@ -22,8 +22,7 @@ export class UsuarioService {
     const encriptada = this.encryptUsingAES256(this.tokenFromUI, contrasena);
     // console.log(encriptada)
     // console.log(this.decryptUsingAES256(this.tokenFromUI, encriptada))
-    return this.http.post(`34.69.133.221:47012/Login`, {  "user": correo, "password": contrasena});
-
+    return this.http.post(`${this.API_URI}/Login`, {  "user": correo, "password": encriptada});
   }
 
   // getUser(correo: string){
@@ -31,8 +30,8 @@ export class UsuarioService {
   // }
 
   postRegistro(usuario: usuario){    
-    // const encriptada = this.encryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
-    // usuario.password = encriptada;
+    const encriptada = this.encryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
+    usuario.password = encriptada;
 console.log(usuario)
     return this.http.post(`${this.API_URI}/Registro`, usuario);
   }
@@ -41,7 +40,7 @@ console.log(usuario)
     const desencriptar = this.decryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
     const encriptada = this.encryptUsingAES256(this.tokenFromUI,  usuario.password.toString());
     usuario.password = encriptada;
-    return this.http.put(`${this.API_URI}/Actualizar_Usuario`, usuario);
+    return this.http.put('http://34.134.68.224:47001/Actualizar_Usuario', usuario);
   }
 
   estaLog():Boolean{
