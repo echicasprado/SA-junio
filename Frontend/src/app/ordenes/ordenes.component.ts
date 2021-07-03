@@ -38,12 +38,12 @@ export class OrdenesComponent implements OnInit {
   }
 
   editarEstado(id, estado){
-    var editado = '{ "_id":"' + id + '", "estado":' + estado + '}';
-    console.log(editado);
+    var editado = JSON.parse('{ "_id":"' + id + '", "estado":' + estado + '}');
     var res;
     
     this.http.post(this.url_editar, editado).subscribe((data)=> {//data es la respuesta
       res = data;
+      location.reload();
       },error => this.error = error); 
   }
 
