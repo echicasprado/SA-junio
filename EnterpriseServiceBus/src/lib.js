@@ -63,8 +63,9 @@ var defaultCrearProducto = async (req, res) => {
 
 
 var switchBus = (req, res) => {
-    grupo = req.body.grupo
-    res.send(grupo)
+   console.log(req.body)
+   grupo = req.body.grupo
+   res.json(grupo)
 }
 
 

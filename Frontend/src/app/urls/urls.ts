@@ -10,7 +10,7 @@ export class URLs{
     public url_crear: string = `http://${this.host}:47002/book/addBook`;
     public url_eliminar: string = `http://${this.host}:47003/book/deleteBook`;
     public url_editar: string = `http://${this.host}:47004/book/updateBook`;
-    public url: string = `http://${this.host}:47005/book/getBooks`;
+    public url: string = `http://${this.host}:47012/Catalogo`;
     public url_deleteSolicitudes: string = `http://${this.host}:47007/EliminarSolicitud`;
     public url_getSolicitudes: string = `http://${this.host}:47008/ObtenerSolicitudes`;
     public url_solicitarLibro: string = `http://${this.host}:47009/SolicitarLibro`;

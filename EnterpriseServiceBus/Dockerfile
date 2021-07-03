@@ -1,5 +1,5 @@
-FROM node:14
+FROM node:16
 COPY . .
 RUN npm install
-EXPOSE 2345
+EXPOSE 47012
 CMD [ "npm", "start" ]
