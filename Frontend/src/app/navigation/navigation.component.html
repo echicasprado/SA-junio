@@ -10,7 +10,7 @@
           <div class=""*ngIf="this.tipouser == 0">
             <li class="nav-item" >
               <a class="nav-link" routerLink="/" routerLinkActive="active"
-                >Catálogo</a
+                >Inicio</a
               >
             </li>
           </div>
@@ -31,14 +31,6 @@
             </li>
           </div>
 
-          <div class=""*ngIf="this.tipouser == 1">
-            <li class="nav-item" >
-              <a class="nav-link" routerLink="/ordenes" routerLinkActive="active"
-                >Ordenes</a
-              >
-            </li>
-          </div>
-
           <div class=""*ngIf="this.tipouser == 2">
             <li class="nav-item" >
               <a class="nav-link" routerLink="/libros" routerLinkActive="active"
@@ -53,6 +45,14 @@
             </li>
           </div>
 
+          <div class=""*ngIf="this.tipouser == 3">
+            <li class="nav-item" >
+              <a class="nav-link" routerLink="/solicitar" routerLinkActive="active"
+                >Solicitar Libro</a>
+            </li>
+          </div>
+          
+
           <div class=""*ngIf="this.tipouser == 2">
             <li class="nav-item" >
               <a class="nav-link" routerLink="/impuestos" routerLinkActive="active"
@@ -60,34 +60,10 @@
             </li>
           </div>
 
-          <div class=""*ngIf="this.tipouser == 3">
-            <li class="nav-item" >
-              <a class="nav-link" routerLink="/solicitar" routerLinkActive="active"
-                >Solicitar Libro</a>
-            </li>
-          </div>
-
-          <div class=""*ngIf="this.tipouser == 3">
-            <li class="nav-item" >
-              <a class="nav-link" routerLink="/mis-ordenes" routerLinkActive="active"
-                >Mis Ordenes</a>
-            </li>
-          </div>
-          
-
-
         </ul>
       </ng-container>
 
       <ul class="navbar-nav ml-auto">
-
-        <div class=""*ngIf="this.tipouser == 3">
-          <li class="nav-item" >
-            <a class="nav-link" routerLink="/carrito" routerLinkActive="active">
-              <i class="fas fa-shopping-cart"></i> &nbsp;&nbsp;&nbsp;|</a>
-          </li> 
-        </div>
-
         <ng-container *ngIf="!usuarioService.estaLog(); else log">
           <li class="nav-item">
             <a class="nav-link" routerLink="/login" routerLinkActive="active"
